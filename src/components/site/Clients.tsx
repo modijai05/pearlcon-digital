@@ -27,13 +27,20 @@ export function Clients() {
       <ul className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-[1.5rem] border border-border bg-border sm:grid-cols-3 lg:grid-cols-4">
         {CLIENTS.map((client, i) => (
           <Reveal as="li" key={client.name} delay={Math.min(i, 8) * 55}>
-            <div className="group flex h-full min-h-[9rem] items-center justify-center bg-card p-6 transition-colors duration-500 hover:bg-secondary">
+            <div className="group relative flex h-full min-h-[9rem] items-center justify-center overflow-hidden bg-card p-6 transition-colors duration-500 hover:bg-secondary">
+              <span
+                aria-hidden
+                className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,var(--blue-atm),transparent_70%)] opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100"
+              />
               <img
                 src={client.logo}
                 alt={client.name}
                 loading="lazy"
-                className="max-h-16 w-auto max-w-[78%] object-contain opacity-70 mix-blend-multiply transition-all duration-700 [transition-timing-function:var(--ease-out-expo)] group-hover:scale-[1.04] group-hover:opacity-100"
+                className="relative max-h-16 w-auto max-w-[78%] object-contain opacity-55 mix-blend-multiply grayscale transition-all duration-700 [transition-timing-function:var(--ease-out-expo)] group-hover:-translate-y-1.5 group-hover:scale-[1.05] group-hover:opacity-100 group-hover:grayscale-0"
               />
+              <span className="pointer-events-none absolute inset-x-3 bottom-3 translate-y-2 text-center text-[0.6rem] uppercase leading-tight tracking-[0.14em] text-muted-foreground opacity-0 transition-all duration-500 [transition-timing-function:var(--ease-out-expo)] group-hover:translate-y-0 group-hover:opacity-100">
+                {client.name}
+              </span>
             </div>
           </Reveal>
         ))}
