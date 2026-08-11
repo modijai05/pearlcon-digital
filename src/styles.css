@@ -143,6 +143,76 @@
   line-height: 0.92;
 }
 
+@utility magnetic-target {
+  will-change: transform;
+}
+
+@utility hairline {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklab, var(--foreground) 18%, transparent),
+    transparent
+  );
+}
+
+@utility nav-underline {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: 0.28rem;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.45s var(--ease-out-expo);
+  }
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+@keyframes atm-drift-a {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-4%, 3%, 0) scale(1.08); }
+}
+
+@keyframes atm-drift-b {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1.04); }
+  50% { transform: translate3d(5%, -4%, 0) scale(0.96); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -10px, 0); }
+}
+
+@keyframes draw-line {
+  from { stroke-dashoffset: var(--dash, 1000); }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes sheen {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(220%); }
+}
+
+.atm-a { animation: atm-drift-a 34s var(--ease-out-expo) infinite; }
+.atm-b { animation: atm-drift-b 42s var(--ease-out-expo) infinite; }
+.float-slow { animation: float-slow 9s ease-in-out infinite; }
+
+@media (hover: hover) and (pointer: fine) {
+  .cursor-hidden, .cursor-hidden * { cursor: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atm-a, .atm-b, .float-slow { animation: none !important; }
+}
+
 @utility logo-mark {
   filter: none;
 }
