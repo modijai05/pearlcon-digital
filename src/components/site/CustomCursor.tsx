@@ -41,7 +41,7 @@ export function CustomCursor() {
       const el = (e.target as HTMLElement | null)?.closest?.(
         "[data-cursor], a, button, input, textarea, select, [role='button']",
       ) as HTMLElement | null;
-      setLabel(el?.dataset?.cursor ?? null);
+      setLabel(el?.dataset?.["cursor"] ?? null);
       setInteractive(Boolean(el));
     };
     const onLeave = () => setVisible(false);
