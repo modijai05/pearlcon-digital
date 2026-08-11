@@ -13,7 +13,8 @@ import { MediaCoverage, SocialPresence } from "@/components/site/MediaAndSocial"
 import { Process } from "@/components/site/Process";
 import { Services } from "@/components/site/Services";
 import { Work } from "@/components/site/Work";
-import { Atmosphere } from "@/components/site/primitives";
+import { CustomCursor } from "@/components/site/CustomCursor";
+import { Atmosphere, ScrollProgress, SectionSeam } from "@/components/site/primitives";
 import { CONTACT, FAQS } from "@/lib/site-data";
 
 const TITLE = "PEARLCON DIGITAL — PR & Digital Growth Agency, Jaipur";
@@ -73,17 +74,22 @@ function Index() {
   return (
     <>
       <Atmosphere />
+      <ScrollProgress />
+      <CustomCursor />
       <Header />
       <main>
         <Hero />
         <About />
         <Services />
+        <SectionSeam />
         <Process />
         <Clients />
         <Work />
+        <SectionSeam flip />
         <MediaCoverage />
         <SocialPresence />
         <CaseStudy />
+        <SectionSeam />
         <FAQ />
         <Contact />
       </main>
