@@ -59,7 +59,7 @@ export function Header() {
       >
         <div
           className={cn(
-            "glass grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 rounded-full py-2 pl-4 pr-2 sm:pl-5",
+            "glass grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 rounded-full py-2 pl-4 pr-2 sm:pl-5 xl:grid-cols-[auto_minmax(0,1fr)_auto]",
             scrolled && "bg-glass-strong",
           )}
         >
