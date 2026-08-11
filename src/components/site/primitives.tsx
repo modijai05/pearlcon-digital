@@ -241,7 +241,7 @@ export function Reveal({
       ref={ref as never}
       style={{ transitionDelay: `${delay}ms` }}
       className={cn(
-        "transition-[opacity,transform,filter] duration-[900ms] [transition-timing-function:var(--ease-out-expo)]",
+        "transition-[opacity,transform,filter,clip-path] duration-[900ms] [transition-timing-function:var(--ease-out-expo)]",
         shown
           ? "translate-y-0 opacity-100 blur-0 [clip-path:inset(0_0_0%_0)]"
           : "translate-y-7 opacity-0 blur-[7px] [clip-path:inset(0_0_18%_0)]",
