@@ -66,10 +66,10 @@ export function FloatingContact() {
           </div>
 
           <h4 className="mt-3 font-display text-xl font-extrabold tracking-tight text-foreground">
-            Election Digital Services 2026
+            Election Digital Services
           </h4>
           <p className="mt-1.5 text-xs font-medium leading-relaxed text-muted-foreground">
-            Nationwide PR, Candidate Websites, Social Media Command Rooms &amp; Voter Ads for 2026 Elections.
+            Nationwide PR, Candidate Websites, Social Media Command Rooms &amp; Voter Ads for Election Campaigns.
           </p>
 
           {/* Visit Election Section Button */}
@@ -80,7 +80,7 @@ export function FloatingContact() {
               className="flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-rose-600 px-4 py-3 text-xs font-extrabold uppercase tracking-wider text-white shadow-lg shadow-amber-500/25 transition-all duration-300 hover:scale-[1.02] hover:shadow-amber-500/40"
             >
               <Sparkles className="h-4 w-4 animate-spin [animation-duration:6s]" />
-              Visit Election Section 2026
+              Visit Election Section
               <ArrowRight className="h-4 w-4" />
             </a>
 
@@ -121,7 +121,7 @@ export function FloatingContact() {
             </span>
             <Sparkles className="h-4 w-4 text-amber-500 animate-spin [animation-duration:8s]" />
             <span className="bg-gradient-to-r from-amber-600 via-orange-600 to-purple-600 bg-clip-text text-transparent font-black">
-              Election Services 2026
+              Election Services
             </span>
             <span className="rounded-full bg-amber-500/20 px-2 py-0.5 text-[0.6rem] font-extrabold text-amber-700 dark:text-amber-300">
               EXPLORE

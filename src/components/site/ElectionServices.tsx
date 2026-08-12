@@ -285,7 +285,7 @@ export function ElectionServices() {
 
         <Reveal delay={80}>
           <h2 className="mt-5 display-xl text-[clamp(2.3rem,5.5vw,4.8rem)] text-foreground">
-            Election Digital Services Rate Card 2026
+            Election Digital Services
           </h2>
         </Reveal>
 

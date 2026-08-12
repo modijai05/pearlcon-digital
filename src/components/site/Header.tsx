@@ -84,7 +84,7 @@ export function Header() {
             </span>
           </a>
 
-          {/* Navigation Links — Bold & Colourful Election 2026 */}
+          {/* Navigation Links — Bold & Colourful Election Services */}
           <nav className="hidden items-center gap-6 justify-self-center xl:flex" aria-label="Primary">
             {NAV_LINKS.map((link) => {
               const isElection = link.label.toLowerCase().includes("election");

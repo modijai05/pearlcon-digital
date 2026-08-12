@@ -2,7 +2,7 @@ import { Reveal, Section, SectionLabel } from "./primitives";
 
 const STATS = [
   { value: "2", label: "Specialised divisions" },
-  { value: "16+", label: "Brands & institutions served" },
+  { value: "50+", label: "Brands & institutions served" },
   { value: "PAN", label: "India media reach" },
 ];
 

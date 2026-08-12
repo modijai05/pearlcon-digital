@@ -241,7 +241,7 @@ export function Services() {
                 {[
                   { n: "5+", label: "Sectors" },
                   { n: "360°", label: "Coverage" },
-                  { n: "16+", label: "Clients" },
+                  { n: "50+", label: "Clients" },
                 ].map(({ n, label }) => (
                   <div
                     key={label}

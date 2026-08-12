@@ -140,8 +140,8 @@
 @utility display-xl {
   font-family: var(--font-display);
   font-weight: 700;
-  letter-spacing: -0.045em;
-  line-height: 0.92;
+  letter-spacing: -0.015em;
+  line-height: 1.05;
 }
 
 @utility magnetic-target {
