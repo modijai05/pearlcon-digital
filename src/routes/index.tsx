@@ -4,6 +4,7 @@ import { About } from "@/components/site/About";
 import { CaseStudy } from "@/components/site/CaseStudy";
 import { Clients } from "@/components/site/Clients";
 import { Contact } from "@/components/site/Contact";
+import { ElectionServices } from "@/components/site/ElectionServices";
 import { FAQ } from "@/components/site/FAQ";
 import { FloatingContact } from "@/components/site/FloatingContact";
 import { Footer } from "@/components/site/Footer";
@@ -82,6 +83,8 @@ function Index() {
         <About />
         <Services />
         <SectionSeam />
+        <ElectionServices />
+        <SectionSeam flip />
         <Process />
         <Clients />
         <Work />

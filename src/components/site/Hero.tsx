@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowDown, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
-import { CONTACT } from "@/lib/site-data";
+import { CLIENTS, CONTACT } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
 import { GlassButton, Magnetic, useFinePointer, useReducedMotion } from "./primitives";
@@ -187,22 +187,28 @@ export function Hero() {
           </div>
         </div>
 
-        <a
-          href="#about"
+        <div
           style={{ transitionDelay: "1060ms" }}
           className={cn(
-            "eyebrow group/scroll mt-16 inline-flex items-center gap-3 transition-all duration-1000 hover:text-foreground",
-            ready ? "opacity-100" : "opacity-0",
+            "mt-16 sm:mt-20 w-full overflow-hidden transition-all duration-1000",
+            ready ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
           )}
         >
-          <span className="grid h-8 w-8 place-items-center rounded-full border border-border transition-colors duration-500 group-hover/scroll:border-foreground/40">
-            <ArrowDown
-              className="h-3.5 w-3.5 transition-transform duration-500 [transition-timing-function:var(--ease-out-expo)] group-hover/scroll:translate-y-0.5"
-              aria-hidden
-            />
-          </span>
-          Scroll
-        </a>
+          <div className="relative w-full overflow-hidden marquee-mask py-4">
+            <div className="flex w-max items-center gap-12 sm:gap-16 md:gap-20 pr-12 sm:pr-16 md:pr-20 animate-marquee hover:[animation-play-state:paused] will-change-transform">
+              {[...CLIENTS, ...CLIENTS].map((client, i) => (
+                <img
+                  key={`${client.name}-${i}`}
+                  src={client.logo}
+                  alt={client.name}
+                  title={client.name}
+                  loading="eager"
+                  className="h-14 sm:h-20 md:h-24 w-auto max-w-[200px] sm:max-w-[280px] object-contain transition-all duration-300 hover:scale-105 shrink-0"
+                />
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

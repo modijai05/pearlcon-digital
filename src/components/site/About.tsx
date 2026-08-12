@@ -36,10 +36,10 @@ export function About() {
           <ul className="mt-12 grid grid-cols-3 gap-4">
             {STATS.map((stat, i) => (
               <Reveal as="li" key={stat.label} delay={220 + i * 90}>
-                <p className="font-display text-3xl font-light tracking-tight sm:text-4xl">
+                <p className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
                   {stat.value}
                 </p>
-                <p className="mt-2 text-xs leading-snug text-muted-foreground">{stat.label}</p>
+                <p className="mt-2 text-xs font-semibold leading-snug text-muted-foreground">{stat.label}</p>
               </Reveal>
             ))}
           </ul>

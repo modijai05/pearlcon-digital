@@ -17,7 +17,7 @@ export function Clients() {
           </Reveal>
         </div>
         <Reveal delay={140}>
-          <p className="max-w-md text-sm leading-relaxed text-muted-foreground lg:justify-self-end">
+          <p className="max-w-md text-sm font-semibold leading-relaxed text-muted-foreground lg:justify-self-end">
             Hospitality, education, associations and non-profits — brands that rely on credible
             communication and consistent visibility.
           </p>
@@ -36,7 +36,7 @@ export function Clients() {
                 src={client.logo}
                 alt={client.name}
                 loading="lazy"
-                className="relative max-h-16 w-auto max-w-[78%] object-contain opacity-55 mix-blend-multiply grayscale transition-all duration-700 [transition-timing-function:var(--ease-out-expo)] group-hover:-translate-y-1.5 group-hover:scale-[1.05] group-hover:opacity-100 group-hover:grayscale-0"
+                className="relative max-h-20 sm:max-h-24 w-auto max-w-[85%] object-contain transition-all duration-500 [transition-timing-function:var(--ease-out-expo)] group-hover:-translate-y-1.5 group-hover:scale-105"
               />
               <span className="pointer-events-none absolute inset-x-3 bottom-3 translate-y-2 text-center text-[0.6rem] uppercase leading-tight tracking-[0.14em] text-muted-foreground opacity-0 transition-all duration-500 [transition-timing-function:var(--ease-out-expo)] group-hover:translate-y-0 group-hover:opacity-100">
                 {client.name}

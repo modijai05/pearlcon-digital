@@ -16,6 +16,7 @@ export const CONTACT = {
 export const NAV_LINKS = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
+  { label: "Election 2026", href: "#election-services" },
   { label: "Process", href: "#process" },
   { label: "Clients", href: "#clients" },
   { label: "Work", href: "#work" },
@@ -256,7 +257,6 @@ export const SOCIAL_PROFILES: WorkItem[] = [
 
 export const WORK_ITEMS: WorkItem[] = [
   ...MEDIA_COVERAGE,
-  ...SOCIAL_PROFILES,
   {
     id: "creative-case",
     title: "Formidium — integrated PR and digital campaign",

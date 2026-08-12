@@ -130,7 +130,8 @@
 }
 
 @utility eyebrow {
-  font-size: 0.6875rem;
+  font-size: 0.7rem;
+  font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--muted-foreground);
@@ -138,7 +139,7 @@
 
 @utility display-xl {
   font-family: var(--font-display);
-  font-weight: 300;
+  font-weight: 700;
   letter-spacing: -0.045em;
   line-height: 0.92;
 }
@@ -148,16 +149,15 @@
 }
 
 @utility hairline {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    color-mix(in oklab, var(--foreground) 18%, transparent),
-    transparent
-  );
+  background: linear-gradient(90deg,
+      transparent,
+      color-mix(in oklab, var(--foreground) 18%, transparent),
+      transparent);
 }
 
 @utility nav-underline {
   position: relative;
+
   &::after {
     content: "";
     position: absolute;
@@ -170,6 +170,7 @@
     transform-origin: right;
     transition: transform 0.45s var(--ease-out-expo);
   }
+
   &:hover::after {
     transform: scaleX(1);
     transform-origin: left;
@@ -177,40 +178,123 @@
 }
 
 @keyframes atm-drift-a {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-  50% { transform: translate3d(-4%, 3%, 0) scale(1.08); }
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(-4%, 3%, 0) scale(1.08);
+  }
 }
 
 @keyframes atm-drift-b {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1.04); }
-  50% { transform: translate3d(5%, -4%, 0) scale(0.96); }
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1.04);
+  }
+
+  50% {
+    transform: translate3d(5%, -4%, 0) scale(0.96);
+  }
 }
 
 @keyframes float-slow {
-  0%, 100% { transform: translate3d(0, 0, 0); }
-  50% { transform: translate3d(0, -10px, 0); }
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
 }
 
 @keyframes draw-line {
-  from { stroke-dashoffset: var(--dash, 1000); }
-  to { stroke-dashoffset: 0; }
+  from {
+    stroke-dashoffset: var(--dash, 1000);
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 @keyframes sheen {
-  0% { transform: translateX(-120%); }
-  100% { transform: translateX(220%); }
+  0% {
+    transform: translateX(-120%);
+  }
+
+  100% {
+    transform: translateX(220%);
+  }
 }
 
-.atm-a { animation: atm-drift-a 34s var(--ease-out-expo) infinite; }
-.atm-b { animation: atm-drift-b 42s var(--ease-out-expo) infinite; }
-.float-slow { animation: float-slow 9s ease-in-out infinite; }
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+.atm-a {
+  animation: atm-drift-a 34s var(--ease-out-expo) infinite;
+}
+
+.atm-b {
+  animation: atm-drift-b 42s var(--ease-out-expo) infinite;
+}
+
+.float-slow {
+  animation: float-slow 9s ease-in-out infinite;
+}
+
+.animate-marquee {
+  animation: marquee 65s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@utility marquee-mask {
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
 
 @media (hover: hover) and (pointer: fine) {
-  .cursor-hidden, .cursor-hidden * { cursor: none; }
+
+  .cursor-hidden,
+  .cursor-hidden * {
+    cursor: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .atm-a, .atm-b, .float-slow { animation: none !important; }
+
+  .atm-a,
+  .atm-b,
+  .float-slow,
+  .animate-marquee {
+    animation: none !important;
+  }
 }
 
 @utility logo-mark {
@@ -285,6 +369,7 @@
     html {
       scroll-behavior: auto;
     }
+
     *,
     *::before,
     *::after {

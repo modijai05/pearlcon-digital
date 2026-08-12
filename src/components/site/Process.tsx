@@ -26,14 +26,14 @@ export function Process() {
           {PROCESS_STEPS.map((step, i) => (
             <Reveal as="li" key={step.id} delay={i * 90}>
               <div className="group grid grid-cols-[auto_minmax(0,1fr)] gap-6 border-b border-border py-8 transition-colors duration-500 first:border-t sm:gap-10">
-                <span className="font-display text-sm font-light tracking-[0.1em] text-muted-foreground">
+                <span className="font-display text-sm font-bold tracking-[0.1em] text-muted-foreground">
                   {step.id}
                 </span>
                 <div className="min-w-0">
-                  <h3 className="font-display text-2xl font-light tracking-tight transition-transform duration-700 [transition-timing-function:var(--ease-out-expo)] group-hover:translate-x-1 sm:text-3xl">
+                  <h3 className="font-display text-2xl font-bold tracking-tight transition-transform duration-700 [transition-timing-function:var(--ease-out-expo)] group-hover:translate-x-1 sm:text-3xl">
                     {step.title}
                   </h3>
-                  <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
+                  <p className="mt-3 max-w-xl text-sm font-medium leading-relaxed text-muted-foreground">
                     {step.description}
                   </p>
                 </div>
