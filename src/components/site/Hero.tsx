@@ -15,49 +15,50 @@ const PARTICLES = [
   { x: 46, y: 12, s: 3, d: 40 },
 ];
 
-/* ── Animated Waveform SVG ──────────────────────────────────────── */
+/* ── Animated Waveform SVG (Full-width right extension) ───────── */
 function AnimatedWave({ className }: { className?: string }) {
   return (
     <svg
-      viewBox="0 0 200 60"
+      viewBox="0 0 800 60"
       className={cn("w-full overflow-visible", className)}
       aria-hidden
     >
       <defs>
         <linearGradient id="wave-grad" x1="0%" y1="0%" x2="100%" y2="0%">
           <stop offset="0%" stopColor="#a78bfa" />
-          <stop offset="50%" stopColor="#f472b6" />
-          <stop offset="100%" stopColor="#fb923c" />
+          <stop offset="40%" stopColor="#f472b6" />
+          <stop offset="80%" stopColor="#fb923c" />
+          <stop offset="100%" stopColor="#ec4899" />
         </linearGradient>
       </defs>
       <path
-        d="M0 30 C 25 10, 50 50, 75 30 S 125 10, 150 30 S 175 50, 200 30"
+        d="M0 30 C 100 10, 200 50, 300 30 S 500 10, 600 30 S 700 50, 800 30"
         fill="none"
         stroke="url(#wave-grad)"
-        strokeWidth="2"
+        strokeWidth="2.5"
         strokeLinecap="round"
-        opacity="0.6"
+        opacity="0.75"
         style={{
-          strokeDasharray: 400,
-          animation: "waveflow 3s ease-in-out infinite alternate",
+          strokeDasharray: 1200,
+          animation: "waveflow 4s ease-in-out infinite alternate",
         }}
       />
       <path
-        d="M0 35 C 30 15, 60 55, 90 35 S 140 15, 170 35 S 190 55, 200 35"
+        d="M0 36 C 120 16, 240 54, 360 36 S 540 16, 660 36 S 750 54, 800 36"
         fill="none"
         stroke="url(#wave-grad)"
-        strokeWidth="1.2"
+        strokeWidth="1.5"
         strokeLinecap="round"
-        opacity="0.35"
+        opacity="0.45"
         style={{
-          strokeDasharray: 400,
-          animation: "waveflow 4s ease-in-out infinite alternate-reverse",
+          strokeDasharray: 1200,
+          animation: "waveflow 5s ease-in-out infinite alternate-reverse",
         }}
       />
       <style>{`
         @keyframes waveflow {
           from { stroke-dashoffset: 0; }
-          to { stroke-dashoffset: 200; }
+          to { stroke-dashoffset: 400; }
         }
       `}</style>
     </svg>
@@ -191,27 +192,22 @@ export function Hero() {
         {/* ── GROW YOUR PRESENCE ONLINE ─────────────────────────── */}
         <h1
           className={cn(
-            "mt-5 font-display font-black uppercase leading-[1.05] tracking-tight transition-all duration-1000 [transition-timing-function:var(--ease-out-expo)]",
+            "mt-5 font-display font-black uppercase leading-[1.08] tracking-tight text-foreground transition-all duration-1000 [transition-timing-function:var(--ease-out-expo)]",
             ready ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0",
           )}
           style={{
-            fontSize: "clamp(2.2rem, 6vw, 4.5rem)",
+            fontSize: "clamp(2.2rem, 5.5vw, 4.2rem)",
             transitionDelay: "260ms",
           }}
         >
-          <span
-            className="bg-gradient-to-r from-violet-400 via-pink-400 to-orange-400 bg-clip-text text-transparent"
-            style={{ animation: "gradientShift 4s ease-in-out infinite alternate" }}
-          >
-            Grow Your Presence Online.
-          </span>
+          Grow Your Presence Online.
         </h1>
 
-        {/* ── Animated wave divider ─────────────────────────────── */}
+        {/* ── Animated wave divider (Extended full width across right) ──────── */}
         <div
           className={cn(
-            "my-3 max-w-md opacity-70 transition-all duration-1000",
-            ready ? "opacity-70" : "opacity-0",
+            "my-4 w-full max-w-4xl opacity-80 transition-all duration-1000",
+            ready ? "opacity-80 translate-y-0" : "opacity-0 translate-y-2",
           )}
           style={{ transitionDelay: "380ms" }}
         >
