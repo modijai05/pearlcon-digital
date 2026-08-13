@@ -6,8 +6,6 @@ import { cn } from "@/lib/utils";
 
 import { GlassButton, Magnetic, useFinePointer, useReducedMotion } from "./primitives";
 
-const WORDS = ["REPUTATION.", "VISIBILITY.", "GROWTH."];
-
 const PARTICLES = [
   { x: 12, y: 24, s: 5, d: 26 },
   { x: 78, y: 18, s: 3, d: 46 },
@@ -191,13 +189,13 @@ export function Hero() {
         </div>
 
         {/* ── GROW YOUR PRESENCE ONLINE ─────────────────────────── */}
-        <h2
+        <h1
           className={cn(
             "mt-5 font-display font-black uppercase leading-[1.05] tracking-tight transition-all duration-1000 [transition-timing-function:var(--ease-out-expo)]",
             ready ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0",
           )}
           style={{
-            fontSize: "clamp(1.6rem, 4vw, 3rem)",
+            fontSize: "clamp(2.2rem, 6vw, 4.5rem)",
             transitionDelay: "260ms",
           }}
         >
@@ -207,7 +205,7 @@ export function Hero() {
           >
             Grow Your Presence Online.
           </span>
-        </h2>
+        </h1>
 
         {/* ── Animated wave divider ─────────────────────────────── */}
         <div
@@ -237,29 +235,6 @@ export function Hero() {
           you reach the right audience.
         </p>
 
-        {/* ── HEADLINE WORDS ───────────────────────────────────── */}
-        <h1 className="mt-8 display-xl text-[clamp(2.75rem,11.5vw,10.5rem)]">
-          {WORDS.map((word, i) => (
-            <span key={word} className="block overflow-hidden pb-[0.24em] -mb-[0.18em]">
-              <span
-                style={{
-                  transitionDelay: `${520 + i * 190}ms`,
-                  transform: ready
-                    ? "translate3d(calc(var(--mx) * " + (i + 1) * 3 + "px), 0, 0)"
-                    : undefined,
-                }}
-                className={cn(
-                  "block transition-[transform,opacity,filter,clip-path] duration-[1300ms] [transition-timing-function:var(--ease-out-expo)]",
-                  ready
-                    ? "translate-y-0 opacity-100 blur-0 [clip-path:none]"
-                    : "translate-y-[105%] opacity-0 blur-[10px] [clip-path:inset(0_0_100%_0)]",
-                )}
-              >
-                {word}
-              </span>
-            </span>
-          ))}
-        </h1>
 
         {/* ── CTA Buttons ──────────────────────────────────────── */}
         <div
