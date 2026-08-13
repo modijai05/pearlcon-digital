@@ -121,44 +121,27 @@ export function Hero() {
           360° PR &amp; Digital Growth Agency
         </p>
 
-        {/* ── COMPANY LOGO ──────────────────────────────────────── */}
-        <div
-          className={cn(
-            "mt-6 flex items-center gap-3 transition-all duration-1000 [transition-timing-function:var(--ease-out-expo)]",
-            ready ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
-          )}
-          style={{ transitionDelay: "120ms" }}
-        >
-          <img
-            src="/assets/logo/pearlcon-mark.png"
-            alt="Pearlcon Digital"
-            className="h-10 w-auto sm:h-12 object-contain"
-            loading="eager"
-          />
-          <span className="text-xs font-black uppercase tracking-[0.18em] text-muted-foreground/60">
-            Pearlcon Digital
-          </span>
-        </div>
-
         {/* ── GROW YOUR PRESENCE ONLINE ─────────────────────────── */}
         <h1
           className={cn(
-            "mt-5 font-display font-black uppercase leading-[1.08] tracking-tight text-foreground transition-all duration-1000 [transition-timing-function:var(--ease-out-expo)]",
+            "mt-4 font-display font-black uppercase leading-[1.08] tracking-tight text-foreground transition-all duration-1000 [transition-timing-function:var(--ease-out-expo)] sm:mt-5",
             ready ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0",
           )}
           style={{
             fontSize: "clamp(2.2rem, 5.5vw, 4.2rem)",
-            transitionDelay: "260ms",
+            transitionDelay: "140ms",
           }}
         >
           Grow Your Presence Online.
-        </h1>        {/* ── Sub-tagline ──────────────────────────────────────── */}
+        </h1>
+
+        {/* ── Sub-tagline ──────────────────────────────────────── */}
         <p
           className={cn(
-            "max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base transition-all duration-1000 [transition-timing-function:var(--ease-out-expo)]",
+            "mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground transition-all duration-1000 [transition-timing-function:var(--ease-out-expo)] sm:text-base",
             ready ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
           )}
-          style={{ transitionDelay: "420ms" }}
+          style={{ transitionDelay: "280ms" }}
         >
           We combine{" "}
           <span className="font-bold text-foreground">social media</span>,{" "}
@@ -169,10 +152,9 @@ export function Hero() {
           you reach the right audience.
         </p>
 
-
         {/* ── CTA Buttons ──────────────────────────────────────── */}
         <div
-          style={{ transitionDelay: "1100ms" }}
+          style={{ transitionDelay: "420ms" }}
           className={cn(
             "mt-7 flex flex-wrap gap-3 transition-all duration-1000 [transition-timing-function:var(--ease-out-expo)]",
             ready ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
@@ -203,7 +185,7 @@ export function Hero() {
 
         {/* ── CLIENT LOGO MARQUEE ─────────────────────────────────── */}
         <div
-          style={{ transitionDelay: "1260ms" }}
+          style={{ transitionDelay: "560ms" }}
           className={cn(
             "mt-14 sm:mt-18 w-full overflow-hidden transition-all duration-1000",
             ready ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
