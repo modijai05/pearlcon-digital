@@ -150,22 +150,43 @@ function IllustrativePostCard({
   gradient,
   tag,
   iconType,
+  imageSrc,
+  imageOffsetX = 0,
+  imageOffsetY = 0,
 }: {
   title: string;
   gradient: string;
   tag: string;
   iconType: string;
+  imageSrc?: string;
+  imageOffsetX?: number;
+  imageOffsetY?: number;
 }) {
   return (
     <div className="group/tile relative aspect-square overflow-hidden rounded-xl border border-white/10 shadow-sm transition-transform duration-300 hover:scale-[1.05] hover:z-10">
       <div className={`h-full w-full bg-gradient-to-br ${gradient} flex flex-col justify-between p-2 relative overflow-hidden`}>
+        {/* Real illustration image layer */}
+        {imageSrc && (
+          <img
+            src={imageSrc}
+            alt={title}
+            loading="lazy"
+            className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-85 group-hover/tile:scale-110 transition-transform duration-700"
+            style={{
+              objectPosition: `${imageOffsetX}% ${imageOffsetY}%`,
+            }}
+          />
+        )}
+
+        {/* Gradient overlay for text legibility */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent z-[1]" />
+
         {/* Background Illustrative Geometry & Patterns */}
         <div className="pointer-events-none absolute -right-4 -top-4 h-16 w-16 rounded-full bg-white/10 blur-sm group-hover/tile:scale-125 transition-transform duration-500" />
-        <div className="pointer-events-none absolute -left-6 -bottom-6 h-20 w-20 rounded-full bg-black/15 blur-sm" />
 
         {/* Top Tag & Vector Graphic Symbol */}
         <div className="relative flex items-center justify-between z-10">
-          <span className="rounded bg-black/40 px-1.5 py-0.5 text-[0.48rem] font-black uppercase tracking-wider text-white backdrop-blur-md border border-white/15">
+          <span className="rounded bg-black/50 px-1.5 py-0.5 text-[0.48rem] font-black uppercase tracking-wider text-white backdrop-blur-md border border-white/15">
             {tag}
           </span>
           <div className="h-5 w-5 rounded-full bg-white/20 p-1 backdrop-blur-sm text-white flex items-center justify-center">
@@ -212,8 +233,21 @@ export type IllustrativeProfile = {
     gradient: string;
     tag: string;
     iconType: string;
+    imageSrc?: string;
+    imageOffsetX?: number;
+    imageOffsetY?: number;
   }>;
 };
+
+/* ── Image offset helpers (each image is a 3-wide strip of 6 posts) ─────── */
+// The generated images are 3x2 grids. We crop each cell by setting
+// objectPosition via imageOffsetX / imageOffsetY percentages.
+// Col positions: left=16.7%, centre=50%, right=83.3%
+// Row positions: top=25%, bottom=75%
+const P_IMG = "/assets/instagram/political-leader-posts.png";
+const D_IMG = "/assets/instagram/doctor-posts.png";
+const B_IMG = "/assets/instagram/business-posts.png";
+const G_IMG = "/assets/instagram/government-posts.png";
 
 const PROFILES: IllustrativeProfile[] = [
   {
@@ -227,12 +261,12 @@ const PROFILES: IllustrativeProfile[] = [
     baseFollowers: 42300,
     following: 350,
     posts: [
-      { title: "Keynote Address 2026", gradient: "from-amber-600 via-orange-600 to-red-700", tag: "ADDRESS", iconType: "podium" },
-      { title: "Rural Growth Mission", gradient: "from-orange-500 via-amber-600 to-yellow-700", tag: "MISSION", iconType: "podium" },
-      { title: "Clean Water Initiative", gradient: "from-blue-600 via-cyan-600 to-indigo-700", tag: "CIVIC", iconType: "podium" },
-      { title: "Townhall Conclave", gradient: "from-purple-600 via-pink-600 to-rose-700", tag: "CONCLAVE", iconType: "podium" },
-      { title: "Infrastructure Plan", gradient: "from-red-600 via-rose-700 to-purple-800", tag: "INFRA", iconType: "podium" },
-      { title: "Community Outreach", gradient: "from-emerald-600 via-teal-600 to-cyan-700", tag: "COMMUNITY", iconType: "podium" },
+      { title: "Keynote Address",     gradient: "from-amber-600 via-orange-600 to-red-700",     tag: "ADDRESS",   iconType: "podium", imageSrc: P_IMG, imageOffsetX: 17, imageOffsetY: 25 },
+      { title: "Rural Growth Mission",gradient: "from-orange-500 via-amber-600 to-yellow-700",  tag: "MISSION",   iconType: "podium", imageSrc: P_IMG, imageOffsetX: 50, imageOffsetY: 25 },
+      { title: "Clean Water",         gradient: "from-blue-600 via-cyan-600 to-indigo-700",      tag: "CIVIC",     iconType: "podium", imageSrc: P_IMG, imageOffsetX: 83, imageOffsetY: 25 },
+      { title: "Townhall Conclave",   gradient: "from-purple-600 via-pink-600 to-rose-700",     tag: "CONCLAVE",  iconType: "podium", imageSrc: P_IMG, imageOffsetX: 17, imageOffsetY: 75 },
+      { title: "Infrastructure Plan", gradient: "from-red-600 via-rose-700 to-purple-800",       tag: "INFRA",     iconType: "podium", imageSrc: P_IMG, imageOffsetX: 50, imageOffsetY: 75 },
+      { title: "Community Outreach",  gradient: "from-emerald-600 via-teal-600 to-cyan-700",    tag: "COMMUNITY", iconType: "podium", imageSrc: P_IMG, imageOffsetX: 83, imageOffsetY: 75 },
     ],
   },
   {
@@ -246,12 +280,12 @@ const PROFILES: IllustrativeProfile[] = [
     baseFollowers: 28600,
     following: 190,
     posts: [
-      { title: "Heart Health Check", gradient: "from-cyan-600 via-teal-600 to-blue-700", tag: "WELLNESS", iconType: "heart" },
-      { title: "Daily Nutrition Habits", gradient: "from-emerald-500 via-teal-600 to-green-700", tag: "NUTRITION", iconType: "heart" },
-      { title: "Clinical Excellence", gradient: "from-teal-600 via-blue-600 to-indigo-700", tag: "CLINIC", iconType: "heart" },
-      { title: "OPD Tele-Health Live", gradient: "from-blue-500 via-indigo-600 to-purple-700", tag: "OPD", iconType: "heart" },
-      { title: "Stress & Mind Science", gradient: "from-sky-500 via-blue-600 to-indigo-800", tag: "MIND CARE", iconType: "heart" },
-      { title: "Medical Awareness", gradient: "from-rose-500 via-pink-600 to-purple-700", tag: "HEALTH", iconType: "heart" },
+      { title: "Heart Health Check",   gradient: "from-cyan-600 via-teal-600 to-blue-700",    tag: "WELLNESS",  iconType: "heart", imageSrc: D_IMG, imageOffsetX: 17, imageOffsetY: 25 },
+      { title: "Daily Nutrition",      gradient: "from-emerald-500 via-teal-600 to-green-700", tag: "NUTRITION", iconType: "heart", imageSrc: D_IMG, imageOffsetX: 50, imageOffsetY: 25 },
+      { title: "Clinical Excellence",  gradient: "from-teal-600 via-blue-600 to-indigo-700",   tag: "CLINIC",   iconType: "heart", imageSrc: D_IMG, imageOffsetX: 83, imageOffsetY: 25 },
+      { title: "OPD Tele-Health Live", gradient: "from-blue-500 via-indigo-600 to-purple-700", tag: "OPD",       iconType: "heart", imageSrc: D_IMG, imageOffsetX: 17, imageOffsetY: 75 },
+      { title: "Mind Science",         gradient: "from-sky-500 via-blue-600 to-indigo-800",    tag: "MIND CARE", iconType: "heart", imageSrc: D_IMG, imageOffsetX: 50, imageOffsetY: 75 },
+      { title: "Medical Awareness",    gradient: "from-rose-500 via-pink-600 to-purple-700",   tag: "HEALTH",   iconType: "heart", imageSrc: D_IMG, imageOffsetX: 83, imageOffsetY: 75 },
     ],
   },
   {
@@ -265,12 +299,12 @@ const PROFILES: IllustrativeProfile[] = [
     baseFollowers: 64100,
     following: 410,
     posts: [
-      { title: "Global Tech Keynote", gradient: "from-indigo-900 via-slate-800 to-purple-950", tag: "KEYNOTE", iconType: "chart" },
-      { title: "Series-B Growth", gradient: "from-amber-600 via-orange-600 to-amber-800", tag: "VENTURE", iconType: "chart" },
-      { title: "Enterprise AI Strategy", gradient: "from-indigo-600 via-purple-700 to-indigo-900", tag: "AI MATRIX", iconType: "chart" },
-      { title: "Boardroom Fireside", gradient: "from-blue-700 via-indigo-800 to-slate-900", tag: "FIRESIDE", iconType: "chart" },
-      { title: "Scaling & Leadership", gradient: "from-violet-600 via-fuchsia-700 to-purple-900", tag: "SCALING", iconType: "chart" },
-      { title: "Innovation Forum", gradient: "from-yellow-600 via-amber-700 to-orange-800", tag: "AWARDS", iconType: "chart" },
+      { title: "Global Tech Keynote",    gradient: "from-indigo-900 via-slate-800 to-purple-950",  tag: "KEYNOTE",   iconType: "chart", imageSrc: B_IMG, imageOffsetX: 17, imageOffsetY: 25 },
+      { title: "Series-B Growth",        gradient: "from-amber-600 via-orange-600 to-amber-800",   tag: "VENTURE",   iconType: "chart", imageSrc: B_IMG, imageOffsetX: 50, imageOffsetY: 25 },
+      { title: "Enterprise AI Strategy", gradient: "from-indigo-600 via-purple-700 to-indigo-900", tag: "AI MATRIX", iconType: "chart", imageSrc: B_IMG, imageOffsetX: 83, imageOffsetY: 25 },
+      { title: "Boardroom Fireside",     gradient: "from-blue-700 via-indigo-800 to-slate-900",    tag: "FIRESIDE",  iconType: "chart", imageSrc: B_IMG, imageOffsetX: 17, imageOffsetY: 75 },
+      { title: "Scaling & Leadership",   gradient: "from-violet-600 via-fuchsia-700 to-purple-900",tag: "SCALING",   iconType: "chart", imageSrc: B_IMG, imageOffsetX: 50, imageOffsetY: 75 },
+      { title: "Innovation Forum",       gradient: "from-yellow-600 via-amber-700 to-orange-800",  tag: "AWARDS",    iconType: "chart", imageSrc: B_IMG, imageOffsetX: 83, imageOffsetY: 75 },
     ],
   },
   {
@@ -284,12 +318,12 @@ const PROFILES: IllustrativeProfile[] = [
     baseFollowers: 89500,
     following: 45,
     posts: [
-      { title: "Smart Traffic Network", gradient: "from-blue-800 via-indigo-900 to-slate-950", tag: "TRAFFIC", iconType: "dome" },
-      { title: "Solar Energy Grid", gradient: "from-emerald-600 via-green-700 to-teal-800", tag: "ENERGY", iconType: "dome" },
-      { title: "Green City Drive", gradient: "from-teal-600 via-cyan-700 to-blue-800", tag: "CLEAN CITY", iconType: "dome" },
-      { title: "Citizen Portal Kiosk", gradient: "from-indigo-700 via-blue-800 to-indigo-950", tag: "HELPLINE", iconType: "dome" },
-      { title: "Urban Parks & Flora", gradient: "from-emerald-500 via-teal-600 to-green-800", tag: "PARKS", iconType: "dome" },
-      { title: "Heritage Conservation", gradient: "from-amber-700 via-yellow-800 to-amber-950", tag: "HERITAGE", iconType: "dome" },
+      { title: "Smart Traffic Network",  gradient: "from-blue-800 via-indigo-900 to-slate-950",  tag: "TRAFFIC",    iconType: "dome", imageSrc: G_IMG, imageOffsetX: 17, imageOffsetY: 25 },
+      { title: "Solar Energy Grid",      gradient: "from-emerald-600 via-green-700 to-teal-800",  tag: "ENERGY",     iconType: "dome", imageSrc: G_IMG, imageOffsetX: 50, imageOffsetY: 25 },
+      { title: "Green City Drive",       gradient: "from-teal-600 via-cyan-700 to-blue-800",      tag: "CLEAN CITY", iconType: "dome", imageSrc: G_IMG, imageOffsetX: 83, imageOffsetY: 25 },
+      { title: "Citizen Portal Kiosk",   gradient: "from-indigo-700 via-blue-800 to-indigo-950",  tag: "HELPLINE",   iconType: "dome", imageSrc: G_IMG, imageOffsetX: 17, imageOffsetY: 75 },
+      { title: "Urban Parks & Flora",    gradient: "from-emerald-500 via-teal-600 to-green-800",  tag: "PARKS",      iconType: "dome", imageSrc: G_IMG, imageOffsetX: 50, imageOffsetY: 75 },
+      { title: "Heritage Conservation",  gradient: "from-amber-700 via-yellow-800 to-amber-950",  tag: "HERITAGE",   iconType: "dome", imageSrc: G_IMG, imageOffsetX: 83, imageOffsetY: 75 },
     ],
   },
 ];
@@ -464,7 +498,7 @@ function ProfileShowcaseCard({
             {profile.bio}
           </p>
 
-          {/* Post Grid (6 Illustrative Post Tiles) */}
+          {/* Post Grid (6 Illustrative Post Tiles with real images) */}
           <div className="mt-4 grid grid-cols-3 gap-1.5">
             {profile.posts.map((post, idx) => (
               <IllustrativePostCard
@@ -473,6 +507,9 @@ function ProfileShowcaseCard({
                 gradient={post.gradient}
                 tag={post.tag}
                 iconType={post.iconType}
+                imageSrc={post.imageSrc}
+                imageOffsetX={post.imageOffsetX}
+                imageOffsetY={post.imageOffsetY}
               />
             ))}
           </div>
