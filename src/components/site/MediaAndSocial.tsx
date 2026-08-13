@@ -45,17 +45,164 @@ export function MediaCoverage() {
   );
 }
 
-/* ── Social Profile Demo Types ────────────────────────────────────────────── */
+/* ── Illustrative DP Vectors ─────────────────────────────────────────────── */
 
-export type DemoProfileData = {
+function PoliticalLeaderDP() {
+  return (
+    <svg viewBox="0 0 100 100" fill="none" className="h-full w-full rounded-full">
+      <defs>
+        <linearGradient id="pol-bg" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#F97316" />
+          <stop offset="0.5" stopColor="#DC2626" />
+          <stop offset="1" stopColor="#7C3AED" />
+        </linearGradient>
+      </defs>
+      <rect width="100" height="100" fill="url(#pol-bg)" />
+      {/* Sunburst Rays */}
+      <circle cx="50" cy="50" r="42" stroke="white" strokeWidth="1" strokeDasharray="3 3" opacity="0.3" />
+      {/* Editorial Leader Vector */}
+      <path d="M50 25 C41 25 35 32 35 41 C35 50 41 55 50 55 C59 55 65 50 65 41 C65 32 59 25 50 25 Z" fill="white" />
+      <path d="M22 88 C22 68 34 60 50 60 C66 60 78 68 78 88 Z" fill="white" opacity="0.9" />
+      {/* Podium & Mic */}
+      <rect x="42" y="70" width="16" height="25" rx="3" fill="#FDE047" />
+      <circle cx="50" cy="52" r="3" fill="#1E293B" />
+      <path d="M47 52 L42 62" stroke="#1E293B" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function DoctorDP() {
+  return (
+    <svg viewBox="0 0 100 100" fill="none" className="h-full w-full rounded-full">
+      <defs>
+        <linearGradient id="doc-bg" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#06B6D4" />
+          <stop offset="0.5" stopColor="#0D9488" />
+          <stop offset="1" stopColor="#2563EB" />
+        </linearGradient>
+      </defs>
+      <rect width="100" height="100" fill="url(#doc-bg)" />
+      {/* Medical Halo Circle */}
+      <circle cx="50" cy="50" r="44" stroke="white" strokeWidth="1.5" opacity="0.25" />
+      {/* Doctor Vector Avatar */}
+      <path d="M50 23 C42 23 36 30 36 39 C36 48 42 53 50 53 C58 53 64 48 64 39 C64 30 58 23 50 23 Z" fill="white" />
+      <path d="M24 88 C24 66 35 58 50 58 C65 58 76 66 76 88 Z" fill="white" opacity="0.95" />
+      {/* Stethoscope */}
+      <path d="M38 60 C38 72 62 72 62 60" stroke="#0D9488" strokeWidth="3.5" strokeLinecap="round" />
+      <circle cx="50" cy="74" r="4.5" fill="#38BDF8" />
+      {/* Cross Badge */}
+      <path d="M72 26 V34 M68 30 H76" stroke="#5EEAD4" strokeWidth="3" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function BusinessmanDP() {
+  return (
+    <svg viewBox="0 0 100 100" fill="none" className="h-full w-full rounded-full">
+      <defs>
+        <linearGradient id="biz-bg" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#6366F1" />
+          <stop offset="0.5" stopColor="#4F46E5" />
+          <stop offset="1" stopColor="#0F172A" />
+        </linearGradient>
+      </defs>
+      <rect width="100" height="100" fill="url(#biz-bg)" />
+      {/* Geometric Skyline Lines */}
+      <path d="M15 85 V60 H30 V45 H45 V35 H60 V50 H75 V65 H90 V85 Z" fill="white" opacity="0.1" />
+      {/* Executive Vector Avatar */}
+      <path d="M50 24 C42 24 37 30 37 39 C37 47 42 53 50 53 C58 53 63 47 63 39 C63 30 58 24 50 24 Z" fill="white" />
+      <path d="M23 88 C23 66 35 58 50 58 C65 58 77 66 77 88 Z" fill="white" opacity="0.9" />
+      {/* Tie */}
+      <polygon points="50,58 53,68 50,82 47,68" fill="#F59E0B" />
+    </svg>
+  );
+}
+
+function GovernmentBodyDP() {
+  return (
+    <svg viewBox="0 0 100 100" fill="none" className="h-full w-full rounded-full">
+      <defs>
+        <linearGradient id="gov-bg" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#1E3A8A" />
+          <stop offset="0.5" stopColor="#1E40AF" />
+          <stop offset="1" stopColor="#065F46" />
+        </linearGradient>
+      </defs>
+      <rect width="100" height="100" fill="url(#gov-bg)" />
+      {/* Emblem Dome Architecture Vector */}
+      <path d="M50 18 C30 18 22 34 22 42 H78 C78 34 70 18 50 18 Z" fill="white" opacity="0.95" />
+      <rect x="22" y="44" width="56" height="6" fill="#F59E0B" />
+      {/* Columns */}
+      <rect x="26" y="52" width="6" height="26" fill="white" />
+      <rect x="38" y="52" width="6" height="26" fill="white" />
+      <rect x="50" y="52" width="6" height="26" fill="white" />
+      <rect x="62" y="52" width="6" height="26" fill="white" />
+      <rect x="74" y="52" width="6" height="26" fill="white" />
+      <rect x="18" y="80" width="64" height="7" fill="#F59E0B" />
+    </svg>
+  );
+}
+
+/* ── Post Artwork Illustrative Component ──────────────────────────────────── */
+
+function IllustrativePostCard({
+  title,
+  gradient,
+  tag,
+  iconType,
+}: {
+  title: string;
+  gradient: string;
+  tag: string;
+  iconType: string;
+}) {
+  return (
+    <div className="group/tile relative aspect-square overflow-hidden rounded-xl border border-white/10 shadow-sm transition-transform duration-300 hover:scale-[1.05] hover:z-10">
+      <div className={`h-full w-full bg-gradient-to-br ${gradient} flex flex-col justify-between p-2 relative overflow-hidden`}>
+        {/* Background Illustrative Geometry & Patterns */}
+        <div className="pointer-events-none absolute -right-4 -top-4 h-16 w-16 rounded-full bg-white/10 blur-sm group-hover/tile:scale-125 transition-transform duration-500" />
+        <div className="pointer-events-none absolute -left-6 -bottom-6 h-20 w-20 rounded-full bg-black/15 blur-sm" />
+
+        {/* Top Tag & Vector Graphic Symbol */}
+        <div className="relative flex items-center justify-between z-10">
+          <span className="rounded bg-black/40 px-1.5 py-0.5 text-[0.48rem] font-black uppercase tracking-wider text-white backdrop-blur-md border border-white/15">
+            {tag}
+          </span>
+          <div className="h-5 w-5 rounded-full bg-white/20 p-1 backdrop-blur-sm text-white flex items-center justify-center">
+            {iconType === "podium" && (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className="h-3 w-3"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
+            )}
+            {iconType === "heart" && (
+              <svg viewBox="0 0 24 24" fill="currentColor" className="h-3 w-3"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            )}
+            {iconType === "chart" && (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className="h-3 w-3"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            )}
+            {iconType === "dome" && (
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className="h-3 w-3"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/></svg>
+            )}
+          </div>
+        </div>
+
+        {/* Title */}
+        <div className="relative z-10">
+          <p className="line-clamp-2 text-[0.58rem] font-black leading-tight text-white drop-shadow-md tracking-tight">
+            {title}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── Profile Definition ─────────────────────────────────────────────────── */
+
+export type IllustrativeProfile = {
   id: string;
   name: string;
   handle: string;
   category: string;
-  badge: string;
-  badgeColor: string;
-  avatarBg: string;
-  avatarSymbol: JSX.Element;
+  avatarComponent: JSX.Element;
   bio: string;
   basePosts: number;
   baseFollowers: number;
@@ -64,122 +211,90 @@ export type DemoProfileData = {
     title: string;
     gradient: string;
     tag: string;
+    iconType: string;
   }>;
 };
 
-const DEMO_PROFILES: DemoProfileData[] = [
+const PROFILES: IllustrativeProfile[] = [
   {
-    id: "profile-political",
-    name: "Aarav Sharma",
-    handle: "@aaravsharma.official",
-    category: "Political Leader Concept",
-    badge: "DEMO PROFILE",
-    badgeColor: "bg-amber-500/15 text-amber-600 dark:text-amber-400 border-amber-500/30",
-    avatarBg: "from-amber-500 via-rose-500 to-purple-600",
-    avatarSymbol: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-5 w-5 text-white">
-        <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z" />
-        <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
-        <line x1="12" y1="19" x2="12" y2="22" />
-      </svg>
-    ),
-    bio: "Public service, community initiatives, youth empowerment & development campaigns.",
+    id: "political-leader",
+    name: "Political Leader",
+    handle: "@political.leader",
+    category: "Public Service & Leadership",
+    avatarComponent: <PoliticalLeaderDP />,
+    bio: "Public service outreach, community development campaigns, policy & civic communication.",
     basePosts: 124,
     baseFollowers: 42300,
     following: 350,
     posts: [
-      { title: "Youth Conclave 2026", gradient: "from-amber-600 to-rose-700", tag: "RALLY" },
-      { title: "Rural Education Drive", gradient: "from-orange-500 to-amber-700", tag: "POLICY" },
-      { title: "Clean Water Mission", gradient: "from-blue-600 to-indigo-700", tag: "CIVIC" },
-      { title: "Townhall Press Address", gradient: "from-purple-600 to-pink-600", tag: "PRESS" },
-      { title: "Infrastructure Blueprint", gradient: "from-rose-600 to-red-800", tag: "DEV" },
-      { title: "Festival Greetings", gradient: "from-emerald-600 to-teal-700", tag: "COMMUNITY" },
+      { title: "Keynote Address 2026", gradient: "from-amber-600 via-orange-600 to-red-700", tag: "ADDRESS", iconType: "podium" },
+      { title: "Rural Growth Mission", gradient: "from-orange-500 via-amber-600 to-yellow-700", tag: "MISSION", iconType: "podium" },
+      { title: "Clean Water Initiative", gradient: "from-blue-600 via-cyan-600 to-indigo-700", tag: "CIVIC", iconType: "podium" },
+      { title: "Townhall Conclave", gradient: "from-purple-600 via-pink-600 to-rose-700", tag: "CONCLAVE", iconType: "podium" },
+      { title: "Infrastructure Plan", gradient: "from-red-600 via-rose-700 to-purple-800", tag: "INFRA", iconType: "podium" },
+      { title: "Community Outreach", gradient: "from-emerald-600 via-teal-600 to-cyan-700", tag: "COMMUNITY", iconType: "podium" },
     ],
   },
   {
-    id: "profile-doctor",
-    name: "Dr. Ananya Mehta",
-    handle: "@drananyamehta.md",
-    category: "Doctor Concept",
-    badge: "DEMO PROFILE",
-    badgeColor: "bg-teal-500/15 text-teal-600 dark:text-teal-400 border-teal-500/30",
-    avatarBg: "from-teal-400 via-cyan-500 to-blue-600",
-    avatarSymbol: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-5 w-5 text-white">
-        <path d="M12 2v20M2 12h20" />
-      </svg>
-    ),
-    bio: "Preventive cardiology, medical awareness, health education & patient care.",
+    id: "doctor",
+    name: "Doctor",
+    handle: "@doctor.care",
+    category: "Healthcare & Medical",
+    avatarComponent: <DoctorDP />,
+    bio: "Preventive cardiology, medical awareness graphics, clinical guidance & wellness education.",
     basePosts: 88,
     baseFollowers: 28600,
     following: 190,
     posts: [
-      { title: "Heart Health Check Guide", gradient: "from-cyan-600 to-blue-700", tag: "WELLNESS" },
-      { title: "Daily Nutrition Habits", gradient: "from-emerald-500 to-teal-600", tag: "HEALTH" },
-      { title: "OPD Consultation Launch", gradient: "from-teal-600 to-indigo-600", tag: "CLINIC" },
-      { title: "Medical Q&A Live", gradient: "from-blue-500 to-purple-600", tag: "Q&A" },
-      { title: "Stress & Sleep Science", gradient: "from-sky-500 to-indigo-700", tag: "CARE" },
-      { title: "Community Health Camp", gradient: "from-rose-500 to-pink-600", tag: "CAMP" },
+      { title: "Heart Health Check", gradient: "from-cyan-600 via-teal-600 to-blue-700", tag: "WELLNESS", iconType: "heart" },
+      { title: "Daily Nutrition Habits", gradient: "from-emerald-500 via-teal-600 to-green-700", tag: "NUTRITION", iconType: "heart" },
+      { title: "Clinical Excellence", gradient: "from-teal-600 via-blue-600 to-indigo-700", tag: "CLINIC", iconType: "heart" },
+      { title: "OPD Tele-Health Live", gradient: "from-blue-500 via-indigo-600 to-purple-700", tag: "OPD", iconType: "heart" },
+      { title: "Stress & Mind Science", gradient: "from-sky-500 via-blue-600 to-indigo-800", tag: "MIND CARE", iconType: "heart" },
+      { title: "Medical Awareness", gradient: "from-rose-500 via-pink-600 to-purple-700", tag: "HEALTH", iconType: "heart" },
     ],
   },
   {
-    id: "profile-businessman",
-    name: "Rohan Malhotra",
-    handle: "@rohanmalhotra.venture",
-    category: "Business Executive Concept",
-    badge: "DEMO PROFILE",
-    badgeColor: "bg-purple-500/15 text-purple-600 dark:text-purple-400 border-purple-500/30",
-    avatarBg: "from-violet-600 via-purple-600 to-indigo-800",
-    avatarSymbol: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-5 w-5 text-white">
-        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-      </svg>
-    ),
-    bio: "Venture growth, enterprise AI, strategic leadership & corporate expansion.",
+    id: "businessman",
+    name: "Businessman",
+    handle: "@businessman.exec",
+    category: "Business & Enterprise",
+    avatarComponent: <BusinessmanDP />,
+    bio: "Venture scaling, enterprise AI strategy, corporate governance & executive leadership.",
     basePosts: 156,
     baseFollowers: 64100,
     following: 410,
     posts: [
-      { title: "Global Tech Keynote", gradient: "from-slate-700 to-slate-900", tag: "KEYNOTE" },
-      { title: "Series-B Milestone", gradient: "from-amber-600 to-orange-700", tag: "VENTURE" },
-      { title: "AI Enterprise Strategy", gradient: "from-indigo-600 to-purple-800", tag: "STRATEGY" },
-      { title: "CEO Fireside Chat", gradient: "from-blue-600 to-cyan-700", tag: "FIRESIDE" },
-      { title: "Leadership Podcast", gradient: "from-violet-600 to-fuchsia-700", tag: "PODCAST" },
-      { title: "Annual Innovation Forum", gradient: "from-yellow-600 to-amber-700", tag: "AWARDS" },
+      { title: "Global Tech Keynote", gradient: "from-indigo-900 via-slate-800 to-purple-950", tag: "KEYNOTE", iconType: "chart" },
+      { title: "Series-B Growth", gradient: "from-amber-600 via-orange-600 to-amber-800", tag: "VENTURE", iconType: "chart" },
+      { title: "Enterprise AI Strategy", gradient: "from-indigo-600 via-purple-700 to-indigo-900", tag: "AI MATRIX", iconType: "chart" },
+      { title: "Boardroom Fireside", gradient: "from-blue-700 via-indigo-800 to-slate-900", tag: "FIRESIDE", iconType: "chart" },
+      { title: "Scaling & Leadership", gradient: "from-violet-600 via-fuchsia-700 to-purple-900", tag: "SCALING", iconType: "chart" },
+      { title: "Innovation Forum", gradient: "from-yellow-600 via-amber-700 to-orange-800", tag: "AWARDS", iconType: "chart" },
     ],
   },
   {
-    id: "profile-govt",
-    name: "Jaipur Civic Development",
-    handle: "@jaipur.civic.dept",
-    category: "Government Body Concept",
-    badge: "CONCEPT / DEMO",
-    badgeColor: "bg-blue-500/15 text-blue-600 dark:text-blue-400 border-blue-500/30",
-    avatarBg: "from-blue-600 via-indigo-600 to-slate-900",
-    avatarSymbol: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="h-5 w-5 text-white">
-        <polygon points="12 2 2 7 12 12 22 7 12 2" />
-        <polyline points="2 17 12 22 22 17" />
-        <polyline points="2 12 12 17 22 12" />
-      </svg>
-    ),
-    bio: "Civic infrastructure, smart traffic, green urban projects & citizen updates.",
+    id: "government-body",
+    name: "Government Body",
+    handle: "@government.body",
+    category: "Civic & Public Services",
+    avatarComponent: <GovernmentBodyDP />,
+    bio: "Civic infrastructure updates, smart traffic corridors, green city initiatives & public information.",
     basePosts: 210,
     baseFollowers: 89500,
     following: 45,
     posts: [
-      { title: "Smart Traffic Corridor", gradient: "from-blue-700 to-indigo-900", tag: "TRAFFIC" },
-      { title: "Solar Energy Grid", gradient: "from-emerald-600 to-green-700", tag: "ENERGY" },
-      { title: "City Sanitation Drive", gradient: "from-teal-600 to-cyan-700", tag: "CLEAN" },
-      { title: "Citizen Portal Launch", gradient: "from-indigo-600 to-blue-700", tag: "HELPLINE" },
-      { title: "Public Park Renovation", gradient: "from-emerald-500 to-teal-700", tag: "PARKS" },
-      { title: "Heritage Walk Project", gradient: "from-amber-700 to-yellow-800", tag: "HERITAGE" },
+      { title: "Smart Traffic Network", gradient: "from-blue-800 via-indigo-900 to-slate-950", tag: "TRAFFIC", iconType: "dome" },
+      { title: "Solar Energy Grid", gradient: "from-emerald-600 via-green-700 to-teal-800", tag: "ENERGY", iconType: "dome" },
+      { title: "Green City Drive", gradient: "from-teal-600 via-cyan-700 to-blue-800", tag: "CLEAN CITY", iconType: "dome" },
+      { title: "Citizen Portal Kiosk", gradient: "from-indigo-700 via-blue-800 to-indigo-950", tag: "HELPLINE", iconType: "dome" },
+      { title: "Urban Parks & Flora", gradient: "from-emerald-500 via-teal-600 to-green-800", tag: "PARKS", iconType: "dome" },
+      { title: "Heritage Conservation", gradient: "from-amber-700 via-yellow-800 to-amber-950", tag: "HERITAGE", iconType: "dome" },
     ],
   },
 ];
 
-/* ── Number Formatting & Animation Helper ────────────────────────────────── */
+/* ── Number Formatting & Counter Component ────────────────────────────────── */
 
 function formatFollowers(num: number): string {
   if (num >= 1000000) {
@@ -217,7 +332,7 @@ function SmoothCounter({
 
     const startVal = prevVal.current;
     const diff = value - startVal;
-    const duration = 1200; // 1.2s smooth interpolation
+    const duration = 1200;
     const startTimestamp = performance.now();
 
     let animationFrameId: number;
@@ -225,7 +340,6 @@ function SmoothCounter({
     const step = (now: number) => {
       const elapsed = now - startTimestamp;
       const progress = Math.min(elapsed / duration, 1);
-      // Ease-out expo curve
       const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
       const current = Math.floor(startVal + diff * ease);
 
@@ -249,7 +363,7 @@ function SmoothCounter({
 
   return (
     <span
-      className={`inline-block font-display text-sm font-extrabold transition-all duration-500 ${
+      className={`inline-block font-display text-sm font-black transition-all duration-500 ${
         isBumped
           ? "scale-110 text-emerald-500 dark:text-emerald-400 drop-shadow-[0_0_8px_rgba(16,185,129,0.5)]"
           : "text-foreground"
@@ -260,15 +374,15 @@ function SmoothCounter({
   );
 }
 
-/* ── Demo Profile Card Component ─────────────────────────────────────────── */
+/* ── Profile Card Component ──────────────────────────────────────────────── */
 
-function DemoProfileCard({
+function ProfileShowcaseCard({
   profile,
   currentPosts,
   currentFollowers,
   delay,
 }: {
-  profile: DemoProfileData;
+  profile: IllustrativeProfile;
   currentPosts: number;
   currentFollowers: number;
   delay: number;
@@ -276,28 +390,24 @@ function DemoProfileCard({
   return (
     <Reveal as="li" delay={delay}>
       <div className="glass group relative flex flex-col justify-between overflow-hidden rounded-[1.6rem] p-5 transition-all duration-700 [transition-timing-function:var(--ease-out-expo)] hover:-translate-y-1.5 hover:shadow-[var(--shadow-soft)]">
-        {/* Shimmer sweep on hover */}
+        {/* Hover Shimmer */}
         <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/[0.08] to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
 
-        {/* Card Header & Badge */}
         <div>
-          <div className="flex items-center justify-between gap-2 border-b border-border/40 pb-3">
-            <span
-              className={`rounded-full border px-2.5 py-0.5 text-[0.6rem] font-bold uppercase tracking-widest ${profile.badgeColor}`}
-            >
-              {profile.badge}
-            </span>
-            <span className="text-[0.62rem] font-semibold tracking-wider text-muted-foreground/60 uppercase">
+          {/* Category Bar */}
+          <div className="flex items-center justify-between border-b border-border/40 pb-3">
+            <span className="text-[0.62rem] font-bold uppercase tracking-widest text-primary/80">
               {profile.category}
             </span>
+            <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
           </div>
 
           {/* Profile Header */}
-          <div className="mt-4 flex items-center gap-3">
-            {/* Avatar with Gradient Ring */}
-            <div className={`relative h-12 w-12 shrink-0 rounded-full bg-gradient-to-br ${profile.avatarBg} p-[2.5px] shadow-md transition-transform duration-500 group-hover:scale-105`}>
-              <div className="flex h-full w-full items-center justify-center rounded-full bg-card shadow-inner">
-                {profile.avatarSymbol}
+          <div className="mt-4 flex items-center gap-3.5">
+            {/* Avatar Ring */}
+            <div className="relative h-13 w-13 shrink-0 rounded-full p-[2px] shadow-md transition-transform duration-500 group-hover:scale-105 bg-gradient-to-br from-amber-500 via-rose-500 to-purple-600">
+              <div className="h-full w-full overflow-hidden rounded-full bg-card">
+                {profile.avatarComponent}
               </div>
               <span className="absolute -bottom-0.5 -right-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-emerald-500 text-[0.55rem] text-white shadow-sm ring-2 ring-card">
                 ✓
@@ -306,10 +416,10 @@ function DemoProfileCard({
 
             {/* Profile Info */}
             <div className="min-w-0 flex-1">
-              <h3 className="truncate font-display text-sm font-bold text-foreground">
+              <h3 className="truncate font-display text-base font-extrabold text-foreground tracking-tight">
                 {profile.name}
               </h3>
-              <p className="truncate text-xs font-medium text-muted-foreground/70">
+              <p className="truncate text-xs font-semibold text-muted-foreground/70">
                 {profile.handle}
               </p>
             </div>
@@ -326,7 +436,7 @@ function DemoProfileCard({
           </div>
 
           {/* Stats Bar */}
-          <div className="mt-4 grid grid-cols-3 rounded-xl border border-border/50 bg-background/50 py-2.5 text-center">
+          <div className="mt-4 grid grid-cols-3 rounded-xl border border-border/50 bg-background/50 py-2.5 text-center shadow-inner">
             <div>
               <SmoothCounter value={currentPosts} />
               <p className="text-[0.58rem] font-bold uppercase tracking-wider text-muted-foreground/70">
@@ -340,7 +450,7 @@ function DemoProfileCard({
               </p>
             </div>
             <div>
-              <span className="font-display text-sm font-extrabold text-foreground">
+              <span className="font-display text-sm font-black text-foreground">
                 {profile.following}
               </span>
               <p className="text-[0.58rem] font-bold uppercase tracking-wider text-muted-foreground/70">
@@ -349,41 +459,28 @@ function DemoProfileCard({
             </div>
           </div>
 
-          {/* Bio text */}
+          {/* Bio Description */}
           <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
             {profile.bio}
           </p>
 
-          {/* Post Grid (6 tiles) */}
+          {/* Post Grid (6 Illustrative Post Tiles) */}
           <div className="mt-4 grid grid-cols-3 gap-1.5">
             {profile.posts.map((post, idx) => (
-              <div
+              <IllustrativePostCard
                 key={idx}
-                className="group/tile relative aspect-square overflow-hidden rounded-lg border border-border/30 bg-muted/40 transition-transform duration-300 hover:scale-[1.04]"
-              >
-                {/* Visual Gradient Background */}
-                <div
-                  className={`h-full w-full bg-gradient-to-br ${post.gradient} flex flex-col justify-between p-1.5 transition-transform duration-500 group-hover/tile:scale-110`}
-                >
-                  <span className="self-start rounded bg-black/40 px-1 py-0.5 text-[0.48rem] font-extrabold tracking-wider text-white backdrop-blur-sm">
-                    {post.tag}
-                  </span>
-                  <p className="line-clamp-2 text-[0.52rem] font-bold leading-tight text-white/90 drop-shadow-sm">
-                    {post.title}
-                  </p>
-                </div>
-              </div>
+                title={post.title}
+                gradient={post.gradient}
+                tag={post.tag}
+                iconType={post.iconType}
+              />
             ))}
           </div>
         </div>
 
-        {/* Demo Indicator Footer */}
-        <div className="mt-4 flex items-center justify-between border-t border-border/40 pt-2.5 text-[0.62rem] text-muted-foreground/70">
-          <span className="inline-flex items-center gap-1">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            Simulated Growth
-          </span>
-          <span className="font-medium">Portfolio Concept</span>
+        {/* Card Footer */}
+        <div className="mt-4 border-t border-border/40 pt-2.5 text-center text-[0.62rem] font-semibold text-muted-foreground/60">
+          PEARLCON DIGITAL SOCIAL SHOWCASE
         </div>
       </div>
     </Reveal>
@@ -395,7 +492,7 @@ function DemoProfileCard({
 export function SocialPresence() {
   const [statsMap, setStatsMap] = useState<Record<string, { posts: number; followers: number }>>(() => {
     const initial: Record<string, { posts: number; followers: number }> = {};
-    DEMO_PROFILES.forEach((p) => {
+    PROFILES.forEach((p) => {
       initial[p.id] = { posts: p.basePosts, followers: p.baseFollowers };
     });
     return initial;
@@ -412,13 +509,13 @@ export function SocialPresence() {
 
     document.addEventListener("visibilitychange", handleVisibilityChange);
 
-    // 10-second interval for simulated social profile activity
+    // 10-second interval for social profile activity counters
     const interval = setInterval(() => {
       if (!isTabActive) return;
 
       setStatsMap((prev) => {
         const next = { ...prev };
-        DEMO_PROFILES.forEach((p) => {
+        PROFILES.forEach((p) => {
           // Posts increase by random 2 - 5 every 10 seconds
           const postIncrement = Math.floor(Math.random() * 4) + 2;
           // Followers increase by random 2000 - 5000 every 10 seconds
@@ -456,34 +553,16 @@ export function SocialPresence() {
             <Reveal delay={140}>
               <p className="mt-5 max-w-lg text-sm leading-relaxed text-muted-foreground">
                 We design and manage social media profiles across public service, healthcare, business,
-                and civic development. Explore four sample profile concepts demonstrating active management.
+                and civic sectors. Explore four category concepts demonstrating active page management.
               </p>
             </Reveal>
           </div>
-
-          {/* Live Activity Demo Banner */}
-          <Reveal delay={180}>
-            <div className="glass flex items-center gap-3 rounded-2xl border border-emerald-500/30 px-4 py-2.5 shadow-sm">
-              <span className="relative flex h-3 w-3 shrink-0">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex h-3 w-3 rounded-full bg-emerald-500" />
-              </span>
-              <div>
-                <p className="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
-                  Live Simulated Growth
-                </p>
-                <p className="text-[0.68rem] text-muted-foreground">
-                  Updates every 10s • Portfolio Demonstration
-                </p>
-              </div>
-            </div>
-          </Reveal>
         </div>
 
         {/* Profile Grid (4 Concepts) */}
         <ul className="mt-14 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-          {DEMO_PROFILES.map((profile, i) => (
-            <DemoProfileCard
+          {PROFILES.map((profile, i) => (
+            <ProfileShowcaseCard
               key={profile.id}
               profile={profile}
               currentPosts={statsMap[profile.id]?.posts ?? profile.basePosts}
