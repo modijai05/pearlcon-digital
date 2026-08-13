@@ -15,55 +15,6 @@ const PARTICLES = [
   { x: 46, y: 12, s: 3, d: 40 },
 ];
 
-/* ── Animated Waveform SVG (Full-width right extension) ───────── */
-function AnimatedWave({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 800 60"
-      className={cn("w-full overflow-visible", className)}
-      aria-hidden
-    >
-      <defs>
-        <linearGradient id="wave-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#a78bfa" />
-          <stop offset="40%" stopColor="#f472b6" />
-          <stop offset="80%" stopColor="#fb923c" />
-          <stop offset="100%" stopColor="#ec4899" />
-        </linearGradient>
-      </defs>
-      <path
-        d="M0 30 C 100 10, 200 50, 300 30 S 500 10, 600 30 S 700 50, 800 30"
-        fill="none"
-        stroke="url(#wave-grad)"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        opacity="0.75"
-        style={{
-          strokeDasharray: 1200,
-          animation: "waveflow 4s ease-in-out infinite alternate",
-        }}
-      />
-      <path
-        d="M0 36 C 120 16, 240 54, 360 36 S 540 16, 660 36 S 750 54, 800 36"
-        fill="none"
-        stroke="url(#wave-grad)"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        opacity="0.45"
-        style={{
-          strokeDasharray: 1200,
-          animation: "waveflow 5s ease-in-out infinite alternate-reverse",
-        }}
-      />
-      <style>{`
-        @keyframes waveflow {
-          from { stroke-dashoffset: 0; }
-          to { stroke-dashoffset: 400; }
-        }
-      `}</style>
-    </svg>
-  );
-}
 
 export function Hero() {
   const [ready, setReady] = useState(false);
@@ -201,20 +152,7 @@ export function Hero() {
           }}
         >
           Grow Your Presence Online.
-        </h1>
-
-        {/* ── Animated wave divider (Extended full width across right) ──────── */}
-        <div
-          className={cn(
-            "my-4 w-full max-w-4xl opacity-80 transition-all duration-1000",
-            ready ? "opacity-80 translate-y-0" : "opacity-0 translate-y-2",
-          )}
-          style={{ transitionDelay: "380ms" }}
-        >
-          <AnimatedWave />
-        </div>
-
-        {/* ── Sub-tagline ──────────────────────────────────────── */}
+        </h1>        {/* ── Sub-tagline ──────────────────────────────────────── */}
         <p
           className={cn(
             "max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base transition-all duration-1000 [transition-timing-function:var(--ease-out-expo)]",

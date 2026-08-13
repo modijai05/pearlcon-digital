@@ -143,79 +143,6 @@ function GovernmentBodyDP() {
   );
 }
 
-/* ── Post Artwork Illustrative Component ──────────────────────────────────── */
-
-function IllustrativePostCard({
-  title,
-  gradient,
-  tag,
-  iconType,
-  imageSrc,
-  imageOffsetX = 0,
-  imageOffsetY = 0,
-}: {
-  title: string;
-  gradient: string;
-  tag: string;
-  iconType: string;
-  imageSrc?: string;
-  imageOffsetX?: number;
-  imageOffsetY?: number;
-}) {
-  return (
-    <div className="group/tile relative aspect-square overflow-hidden rounded-xl border border-white/10 shadow-sm transition-transform duration-300 hover:scale-[1.05] hover:z-10">
-      <div className={`h-full w-full bg-gradient-to-br ${gradient} flex flex-col justify-between p-2 relative overflow-hidden`}>
-        {/* Real illustration image layer */}
-        {imageSrc && (
-          <img
-            src={imageSrc}
-            alt={title}
-            loading="lazy"
-            className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-85 group-hover/tile:scale-110 transition-transform duration-700"
-            style={{
-              objectPosition: `${imageOffsetX}% ${imageOffsetY}%`,
-            }}
-          />
-        )}
-
-        {/* Gradient overlay for text legibility */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent z-[1]" />
-
-        {/* Background Illustrative Geometry & Patterns */}
-        <div className="pointer-events-none absolute -right-4 -top-4 h-16 w-16 rounded-full bg-white/10 blur-sm group-hover/tile:scale-125 transition-transform duration-500" />
-
-        {/* Top Tag & Vector Graphic Symbol */}
-        <div className="relative flex items-center justify-between z-10">
-          <span className="rounded bg-black/50 px-1.5 py-0.5 text-[0.48rem] font-black uppercase tracking-wider text-white backdrop-blur-md border border-white/15">
-            {tag}
-          </span>
-          <div className="h-5 w-5 rounded-full bg-white/20 p-1 backdrop-blur-sm text-white flex items-center justify-center">
-            {iconType === "podium" && (
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className="h-3 w-3"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg>
-            )}
-            {iconType === "heart" && (
-              <svg viewBox="0 0 24 24" fill="currentColor" className="h-3 w-3"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-            )}
-            {iconType === "chart" && (
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className="h-3 w-3"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-            )}
-            {iconType === "dome" && (
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} className="h-3 w-3"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/></svg>
-            )}
-          </div>
-        </div>
-
-        {/* Title */}
-        <div className="relative z-10">
-          <p className="line-clamp-2 text-[0.58rem] font-black leading-tight text-white drop-shadow-md tracking-tight">
-            {title}
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 /* ── Profile Definition ─────────────────────────────────────────────────── */
 
 export type IllustrativeProfile = {
@@ -228,22 +155,12 @@ export type IllustrativeProfile = {
   basePosts: number;
   baseFollowers: number;
   following: number;
-  posts: Array<{
-    title: string;
-    gradient: string;
-    tag: string;
-    iconType: string;
-    imageSrc?: string;
-    imageOffsetX?: number;
-    imageOffsetY?: number;
-  }>;
+  mainPostImage: string;
+  mainPostTitle: string;
+  mainPostTag: string;
+  mainPostOffset?: string;
 };
 
-/* ── Image offset helpers (each image is a 3-wide strip of 6 posts) ─────── */
-// The generated images are 3x2 grids. We crop each cell by setting
-// objectPosition via imageOffsetX / imageOffsetY percentages.
-// Col positions: left=16.7%, centre=50%, right=83.3%
-// Row positions: top=25%, bottom=75%
 const P_IMG = "/assets/instagram/political-leader-posts.png";
 const D_IMG = "/assets/instagram/doctor-posts.png";
 const B_IMG = "/assets/instagram/business-posts.png";
@@ -260,14 +177,10 @@ const PROFILES: IllustrativeProfile[] = [
     basePosts: 124,
     baseFollowers: 42300,
     following: 350,
-    posts: [
-      { title: "Keynote Address",     gradient: "from-amber-600 via-orange-600 to-red-700",     tag: "ADDRESS",   iconType: "podium", imageSrc: P_IMG, imageOffsetX: 17, imageOffsetY: 25 },
-      { title: "Rural Growth Mission",gradient: "from-orange-500 via-amber-600 to-yellow-700",  tag: "MISSION",   iconType: "podium", imageSrc: P_IMG, imageOffsetX: 50, imageOffsetY: 25 },
-      { title: "Clean Water",         gradient: "from-blue-600 via-cyan-600 to-indigo-700",      tag: "CIVIC",     iconType: "podium", imageSrc: P_IMG, imageOffsetX: 83, imageOffsetY: 25 },
-      { title: "Townhall Conclave",   gradient: "from-purple-600 via-pink-600 to-rose-700",     tag: "CONCLAVE",  iconType: "podium", imageSrc: P_IMG, imageOffsetX: 17, imageOffsetY: 75 },
-      { title: "Infrastructure Plan", gradient: "from-red-600 via-rose-700 to-purple-800",       tag: "INFRA",     iconType: "podium", imageSrc: P_IMG, imageOffsetX: 50, imageOffsetY: 75 },
-      { title: "Community Outreach",  gradient: "from-emerald-600 via-teal-600 to-cyan-700",    tag: "COMMUNITY", iconType: "podium", imageSrc: P_IMG, imageOffsetX: 83, imageOffsetY: 75 },
-    ],
+    mainPostImage: P_IMG,
+    mainPostTitle: "Keynote Address & Public Service Mission",
+    mainPostTag: "FEATURED POST",
+    mainPostOffset: "50% 25%",
   },
   {
     id: "doctor",
@@ -279,14 +192,10 @@ const PROFILES: IllustrativeProfile[] = [
     basePosts: 88,
     baseFollowers: 28600,
     following: 190,
-    posts: [
-      { title: "Heart Health Check",   gradient: "from-cyan-600 via-teal-600 to-blue-700",    tag: "WELLNESS",  iconType: "heart", imageSrc: D_IMG, imageOffsetX: 17, imageOffsetY: 25 },
-      { title: "Daily Nutrition",      gradient: "from-emerald-500 via-teal-600 to-green-700", tag: "NUTRITION", iconType: "heart", imageSrc: D_IMG, imageOffsetX: 50, imageOffsetY: 25 },
-      { title: "Clinical Excellence",  gradient: "from-teal-600 via-blue-600 to-indigo-700",   tag: "CLINIC",   iconType: "heart", imageSrc: D_IMG, imageOffsetX: 83, imageOffsetY: 25 },
-      { title: "OPD Tele-Health Live", gradient: "from-blue-500 via-indigo-600 to-purple-700", tag: "OPD",       iconType: "heart", imageSrc: D_IMG, imageOffsetX: 17, imageOffsetY: 75 },
-      { title: "Mind Science",         gradient: "from-sky-500 via-blue-600 to-indigo-800",    tag: "MIND CARE", iconType: "heart", imageSrc: D_IMG, imageOffsetX: 50, imageOffsetY: 75 },
-      { title: "Medical Awareness",    gradient: "from-rose-500 via-pink-600 to-purple-700",   tag: "HEALTH",   iconType: "heart", imageSrc: D_IMG, imageOffsetX: 83, imageOffsetY: 75 },
-    ],
+    mainPostImage: D_IMG,
+    mainPostTitle: "Preventive Cardiology & Clinical Guidance",
+    mainPostTag: "HEALTHCARE",
+    mainPostOffset: "50% 25%",
   },
   {
     id: "businessman",
@@ -298,14 +207,10 @@ const PROFILES: IllustrativeProfile[] = [
     basePosts: 156,
     baseFollowers: 64100,
     following: 410,
-    posts: [
-      { title: "Global Tech Keynote",    gradient: "from-indigo-900 via-slate-800 to-purple-950",  tag: "KEYNOTE",   iconType: "chart", imageSrc: B_IMG, imageOffsetX: 17, imageOffsetY: 25 },
-      { title: "Series-B Growth",        gradient: "from-amber-600 via-orange-600 to-amber-800",   tag: "VENTURE",   iconType: "chart", imageSrc: B_IMG, imageOffsetX: 50, imageOffsetY: 25 },
-      { title: "Enterprise AI Strategy", gradient: "from-indigo-600 via-purple-700 to-indigo-900", tag: "AI MATRIX", iconType: "chart", imageSrc: B_IMG, imageOffsetX: 83, imageOffsetY: 25 },
-      { title: "Boardroom Fireside",     gradient: "from-blue-700 via-indigo-800 to-slate-900",    tag: "FIRESIDE",  iconType: "chart", imageSrc: B_IMG, imageOffsetX: 17, imageOffsetY: 75 },
-      { title: "Scaling & Leadership",   gradient: "from-violet-600 via-fuchsia-700 to-purple-900",tag: "SCALING",   iconType: "chart", imageSrc: B_IMG, imageOffsetX: 50, imageOffsetY: 75 },
-      { title: "Innovation Forum",       gradient: "from-yellow-600 via-amber-700 to-orange-800",  tag: "AWARDS",    iconType: "chart", imageSrc: B_IMG, imageOffsetX: 83, imageOffsetY: 75 },
-    ],
+    mainPostImage: B_IMG,
+    mainPostTitle: "Enterprise AI Strategy & Global Tech Summit",
+    mainPostTag: "EXECUTIVE",
+    mainPostOffset: "50% 25%",
   },
   {
     id: "government-body",
@@ -317,14 +222,10 @@ const PROFILES: IllustrativeProfile[] = [
     basePosts: 210,
     baseFollowers: 89500,
     following: 45,
-    posts: [
-      { title: "Smart Traffic Network",  gradient: "from-blue-800 via-indigo-900 to-slate-950",  tag: "TRAFFIC",    iconType: "dome", imageSrc: G_IMG, imageOffsetX: 17, imageOffsetY: 25 },
-      { title: "Solar Energy Grid",      gradient: "from-emerald-600 via-green-700 to-teal-800",  tag: "ENERGY",     iconType: "dome", imageSrc: G_IMG, imageOffsetX: 50, imageOffsetY: 25 },
-      { title: "Green City Drive",       gradient: "from-teal-600 via-cyan-700 to-blue-800",      tag: "CLEAN CITY", iconType: "dome", imageSrc: G_IMG, imageOffsetX: 83, imageOffsetY: 25 },
-      { title: "Citizen Portal Kiosk",   gradient: "from-indigo-700 via-blue-800 to-indigo-950",  tag: "HELPLINE",   iconType: "dome", imageSrc: G_IMG, imageOffsetX: 17, imageOffsetY: 75 },
-      { title: "Urban Parks & Flora",    gradient: "from-emerald-500 via-teal-600 to-green-800",  tag: "PARKS",      iconType: "dome", imageSrc: G_IMG, imageOffsetX: 50, imageOffsetY: 75 },
-      { title: "Heritage Conservation",  gradient: "from-amber-700 via-yellow-800 to-amber-950",  tag: "HERITAGE",   iconType: "dome", imageSrc: G_IMG, imageOffsetX: 83, imageOffsetY: 75 },
-    ],
+    mainPostImage: G_IMG,
+    mainPostTitle: "Smart Infrastructure & Solar Energy Grid",
+    mainPostTag: "CIVIC UPDATE",
+    mainPostOffset: "50% 25%",
   },
 ];
 
@@ -498,20 +399,33 @@ function ProfileShowcaseCard({
             {profile.bio}
           </p>
 
-          {/* Post Grid (6 Illustrative Post Tiles with real images) */}
-          <div className="mt-4 grid grid-cols-3 gap-1.5">
-            {profile.posts.map((post, idx) => (
-              <IllustrativePostCard
-                key={idx}
-                title={post.title}
-                gradient={post.gradient}
-                tag={post.tag}
-                iconType={post.iconType}
-                imageSrc={post.imageSrc}
-                imageOffsetX={post.imageOffsetX}
-                imageOffsetY={post.imageOffsetY}
-              />
-            ))}
+          {/* Single Showcase Post Image (Single image display just like DP) */}
+          <div className="mt-4 overflow-hidden rounded-2xl border border-border/50 relative aspect-[4/3] group/post shadow-md">
+            <img
+              src={profile.mainPostImage}
+              alt={profile.name}
+              loading="lazy"
+              className="h-full w-full object-cover group-hover/post:scale-105 transition-transform duration-700"
+              style={{ objectPosition: profile.mainPostOffset }}
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent z-[1]" />
+
+            {/* Tag & Badge */}
+            <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
+              <span className="rounded-md bg-black/60 px-2.5 py-1 text-[0.6rem] font-bold uppercase tracking-wider text-white backdrop-blur-md border border-white/20">
+                {profile.mainPostTag}
+              </span>
+              <span className="text-[0.6rem] font-bold text-white/90 backdrop-blur-md bg-white/20 px-2.5 py-0.5 rounded-full border border-white/20">
+                Featured Content
+              </span>
+            </div>
+
+            {/* Title Caption */}
+            <div className="absolute bottom-3 left-3 right-3 z-10">
+              <p className="text-xs font-black leading-snug text-white drop-shadow-md tracking-tight">
+                {profile.mainPostTitle}
+              </p>
+            </div>
           </div>
         </div>
 
