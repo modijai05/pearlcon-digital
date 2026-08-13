@@ -239,9 +239,9 @@ export function Services() {
               {/* decorative stat pills */}
               <div className="mt-10 flex flex-wrap gap-3">
                 {[
-                  { n: "5+", label: "Sectors" },
+                  { n: "15+", label: "Sectors" },
                   { n: "360°", label: "Coverage" },
-                  { n: "50+", label: "Clients" },
+                  { n: "1000+", label: "Clients" },
                 ].map(({ n, label }) => (
                   <div
                     key={label}

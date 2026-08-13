@@ -123,7 +123,7 @@ export function Hero() {
 
         <h1 className="mt-6 display-xl text-[clamp(2.75rem,11.5vw,10.5rem)]">
           {WORDS.map((word, i) => (
-            <span key={word} className="block overflow-hidden pb-[0.06em]">
+            <span key={word} className="block overflow-hidden pb-[0.24em] -mb-[0.18em]">
               <span
                 style={{
                   transitionDelay: `${200 + i * 190}ms`,
@@ -134,7 +134,7 @@ export function Hero() {
                 className={cn(
                   "block transition-[transform,opacity,filter,clip-path] duration-[1300ms] [transition-timing-function:var(--ease-out-expo)]",
                   ready
-                    ? "translate-y-0 opacity-100 blur-0 [clip-path:inset(0_0_0_0)]"
+                    ? "translate-y-0 opacity-100 blur-0 [clip-path:none]"
                     : "translate-y-[105%] opacity-0 blur-[10px] [clip-path:inset(0_0_100%_0)]",
                 )}
               >

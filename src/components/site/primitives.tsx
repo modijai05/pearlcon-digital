@@ -243,7 +243,7 @@ export function Reveal({
       className={cn(
         "transition-[opacity,transform,filter,clip-path] duration-[900ms] [transition-timing-function:var(--ease-out-expo)]",
         shown
-          ? "translate-y-0 opacity-100 blur-0 [clip-path:inset(0_0_0%_0)]"
+          ? "translate-y-0 opacity-100 blur-0 [clip-path:none]"
           : "translate-y-7 opacity-0 blur-[7px] [clip-path:inset(0_0_18%_0)]",
         className,
       )}

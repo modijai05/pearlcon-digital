@@ -141,7 +141,8 @@
   font-family: var(--font-display);
   font-weight: 700;
   letter-spacing: -0.015em;
-  line-height: 1.05;
+  line-height: 1.14;
+  padding-bottom: 0.08em;
 }
 
 @utility magnetic-target {
@@ -358,7 +359,8 @@
   h2,
   h3 {
     font-family: var(--font-display);
-    letter-spacing: -0.035em;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
   }
 
   ::selection {

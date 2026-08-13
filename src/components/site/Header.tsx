@@ -130,9 +130,10 @@ export function Header() {
               href={CONTACT.whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden items-center gap-2 rounded-full bg-primary px-4 py-2.5 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-primary-foreground shadow-md transition-all duration-400 hover:-translate-y-0.5 hover:scale-105 lg:inline-flex"
+              aria-label="Connect with Pearlcon Digital on WhatsApp"
+              className="hidden items-center gap-2 rounded-full bg-[#25D366] px-4.5 py-2.5 text-[0.68rem] font-bold uppercase tracking-[0.14em] text-white shadow-[0_4px_20px_rgba(37,211,102,0.35)] transition-all duration-400 hover:bg-[#20ba5a] hover:shadow-[0_8px_28px_rgba(37,211,102,0.55)] hover:-translate-y-0.5 hover:scale-105 lg:inline-flex"
             >
-              <WhatsAppIcon className="h-3.5 w-3.5" />
+              <WhatsAppIcon className="h-3.5 w-3.5 fill-current" />
               Let's Connect
             </a>
             <button
@@ -211,9 +212,10 @@ export function Header() {
               href={CONTACT.whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-primary-foreground"
+              aria-label="Connect with Pearlcon Digital on WhatsApp"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3.5 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-white shadow-[0_4px_20px_rgba(37,211,102,0.35)] transition-all duration-300 hover:bg-[#20ba5a]"
             >
-              <WhatsAppIcon className="h-4 w-4" /> WhatsApp
+              <WhatsAppIcon className="h-4 w-4 fill-current" /> Let's Connect
             </a>
           </div>
         </div>
