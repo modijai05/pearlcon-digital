@@ -17,37 +17,6 @@ const PARTICLES = [
   { x: 46, y: 12, s: 3, d: 40 },
 ];
 
-/* ── Floating Service Pill ──────────────────────────────────────── */
-function ServicePill({
-  label,
-  icon,
-  delay,
-  className,
-}: {
-  label: string;
-  icon: React.ReactNode;
-  delay: number;
-  className?: string;
-}) {
-  const [vis, setVis] = useState(false);
-  useEffect(() => {
-    const t = setTimeout(() => setVis(true), delay);
-    return () => clearTimeout(t);
-  }, [delay]);
-  return (
-    <div
-      className={cn(
-        "absolute flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[0.65rem] font-bold uppercase tracking-widest text-white shadow-lg backdrop-blur-md transition-all duration-1000 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)]",
-        vis ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
-        className,
-      )}
-    >
-      <span className="text-base leading-none">{icon}</span>
-      {label}
-    </div>
-  );
-}
-
 /* ── Animated Waveform SVG ──────────────────────────────────────── */
 function AnimatedWave({ className }: { className?: string }) {
   return (
@@ -94,63 +63,6 @@ function AnimatedWave({ className }: { className?: string }) {
         }
       `}</style>
     </svg>
-  );
-}
-
-/* ── Orbiting Icons Ring ────────────────────────────────────────── */
-function OrbitRing({ ready }: { ready: boolean }) {
-  const icons = ["📱", "📰", "🎯", "📡", "🏆", "✨"];
-  return (
-    <div
-      className={cn(
-        "relative mx-auto h-48 w-48 sm:h-56 sm:w-56 transition-all duration-1500 [transition-timing-function:var(--ease-out-expo)]",
-        ready ? "scale-100 opacity-100" : "scale-75 opacity-0",
-      )}
-      style={{ transitionDelay: "600ms" }}
-    >
-      {/* Central glow orb */}
-      <div className="absolute inset-0 m-auto h-28 w-28 sm:h-32 sm:w-32 rounded-full bg-gradient-to-br from-violet-500 via-purple-600 to-indigo-700 shadow-[0_0_60px_20px_rgba(139,92,246,0.4)] animate-pulse" />
-
-      {/* PC Logo centered */}
-      <div className="absolute inset-0 flex items-center justify-center z-10">
-        <img
-          src="/assets/logo/pearlcon-mark.png"
-          alt="Pearlcon Digital"
-          className="h-12 w-auto sm:h-14 object-contain drop-shadow-[0_0_12px_rgba(255,255,255,0.8)]"
-          loading="eager"
-        />
-      </div>
-
-      {/* Orbit ring */}
-      <div
-        className="absolute inset-0 rounded-full border border-white/20"
-        style={{ animation: "orbitSpin 12s linear infinite" }}
-      >
-        {icons.map((icon, i) => {
-          const angle = (i / icons.length) * 360;
-          const rad = (angle * Math.PI) / 180;
-          const cx = 50 + 42 * Math.cos(rad);
-          const cy = 50 + 42 * Math.sin(rad);
-          return (
-            <div
-              key={i}
-              className="absolute flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-white/30 bg-white/15 text-base backdrop-blur-md shadow-lg"
-              style={{
-                left: `${cx}%`,
-                top: `${cy}%`,
-                transform: "translate(-50%, -50%)",
-                animation: `orbitSpin 12s linear infinite reverse`,
-              }}
-            >
-              {icon}
-            </div>
-          );
-        })}
-      </div>
-      <style>{`
-        @keyframes orbitSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-      `}</style>
-    </div>
   );
 }
 
@@ -259,178 +171,130 @@ export function Hero() {
           360° PR &amp; Digital Growth Agency
         </p>
 
-        {/* ── MAIN HERO GRID ─────────────────────────────────────── */}
-        <div className="mt-6 grid items-center gap-8 lg:grid-cols-[1fr_auto] xl:gap-16">
-          {/* Left: Headline + Grow tagline + CTA */}
-          <div>
-            {/* Headline words */}
-            <h1 className="display-xl text-[clamp(2.75rem,11.5vw,10.5rem)]">
-              {WORDS.map((word, i) => (
-                <span key={word} className="block overflow-hidden pb-[0.24em] -mb-[0.18em]">
-                  <span
-                    style={{
-                      transitionDelay: `${200 + i * 190}ms`,
-                      transform: ready
-                        ? "translate3d(calc(var(--mx) * " + (i + 1) * 3 + "px), 0, 0)"
-                        : undefined,
-                    }}
-                    className={cn(
-                      "block transition-[transform,opacity,filter,clip-path] duration-[1300ms] [transition-timing-function:var(--ease-out-expo)]",
-                      ready
-                        ? "translate-y-0 opacity-100 blur-0 [clip-path:none]"
-                        : "translate-y-[105%] opacity-0 blur-[10px] [clip-path:inset(0_0_100%_0)]",
-                    )}
-                  >
-                    {word}
-                  </span>
-                </span>
-              ))}
-            </h1>
+        {/* ── COMPANY LOGO ──────────────────────────────────────── */}
+        <div
+          className={cn(
+            "mt-6 flex items-center gap-3 transition-all duration-1000 [transition-timing-function:var(--ease-out-expo)]",
+            ready ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
+          )}
+          style={{ transitionDelay: "120ms" }}
+        >
+          <img
+            src="/assets/logo/pearlcon-mark.png"
+            alt="Pearlcon Digital"
+            className="h-10 w-auto sm:h-12 object-contain"
+            loading="eager"
+          />
+          <span className="text-xs font-black uppercase tracking-[0.18em] text-muted-foreground/60">
+            Pearlcon Digital
+          </span>
+        </div>
 
-            {/* ── GROW YOUR PRESENCE ONLINE banner ───────────────── */}
-            <div
-              style={{ transitionDelay: "750ms" }}
-              className={cn(
-                "mt-8 sm:mt-10 rounded-2xl border border-white/10 bg-gradient-to-br from-violet-600/20 via-purple-700/15 to-indigo-600/20 p-5 sm:p-6 backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] transition-all duration-1000 [transition-timing-function:var(--ease-out-expo)]",
-                ready ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0",
-              )}
-            >
-              {/* Company logo row */}
-              <div className="mb-4 flex items-center gap-3">
-                <img
-                  src="/assets/logo/pearlcon-mark.png"
-                  alt="Pearlcon Digital"
-                  className="h-8 w-auto object-contain"
-                  loading="eager"
-                />
-                <span className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-muted-foreground/70">
-                  Pearlcon Digital
-                </span>
-              </div>
-
-              {/* GROW YOUR PRESENCE ONLINE heading */}
-              <h2
-                className="font-display font-black uppercase leading-[1.05] tracking-tight text-foreground"
-                style={{ fontSize: "clamp(1.35rem, 3.2vw, 2.4rem)" }}
-              >
-                <span
-                  className="bg-gradient-to-r from-violet-400 via-pink-400 to-orange-400 bg-clip-text text-transparent"
-                  style={{ animation: "gradientShift 4s ease-in-out infinite alternate" }}
-                >
-                  Grow Your Presence Online.
-                </span>
-              </h2>
-
-              {/* Animated wave */}
-              <div className="my-3 opacity-70">
-                <AnimatedWave />
-              </div>
-
-              {/* Sub-tagline */}
-              <p className="max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
-                We combine{" "}
-                <span className="font-bold text-foreground">social media</span>,{" "}
-                <span className="font-bold text-foreground">creative content</span>,{" "}
-                <span className="font-bold text-foreground">digital advertising</span>,{" "}
-                <span className="font-bold text-foreground">PR</span> and{" "}
-                <span className="font-bold text-foreground">nationwide media coverage</span> to help
-                you reach the right audience.
-              </p>
-
-              {/* Service pills row */}
-              <div className="mt-4 flex flex-wrap gap-2">
-                {["📱 Social Media", "🎯 Digital Ads", "📰 PR & Media", "🏆 Brand Strategy"].map(
-                  (pill, i) => (
-                    <span
-                      key={pill}
-                      className="rounded-full border border-white/15 bg-white/8 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wider text-foreground/80 backdrop-blur-sm"
-                      style={{
-                        animation: `fadeSlideIn 0.6s ease both`,
-                        animationDelay: `${1100 + i * 80}ms`,
-                      }}
-                    >
-                      {pill}
-                    </span>
-                  ),
-                )}
-              </div>
-            </div>
-
-            {/* CTA Buttons */}
-            <div
-              style={{ transitionDelay: "940ms" }}
-              className={cn(
-                "mt-7 flex flex-wrap gap-3 transition-all duration-1000 [transition-timing-function:var(--ease-out-expo)]",
-                ready ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
-              )}
-            >
-              <Magnetic>
-                <GlassButton href="#contact" variant="solid">
-                  Let's Talk
-                  <ArrowRight
-                    className="h-3.5 w-3.5 transition-transform duration-300 [transition-timing-function:var(--ease-out-expo)] group-hover/btn:translate-x-1"
-                    aria-hidden
-                  />
-                </GlassButton>
-              </Magnetic>
-              <Magnetic>
-                <GlassButton href="#services">
-                  Explore Services
-                  <ArrowRight
-                    className="h-3.5 w-3.5 transition-transform duration-300 [transition-timing-function:var(--ease-out-expo)] group-hover/btn:translate-x-1"
-                    aria-hidden
-                  />
-                </GlassButton>
-              </Magnetic>
-              <Magnetic>
-                <GlassButton href={CONTACT.phoneHref}>Call Now</GlassButton>
-              </Magnetic>
-            </div>
-          </div>
-
-          {/* Right: Orbit Ring + Hero Graphic */}
-          <div
-            className="relative hidden lg:flex flex-col items-center justify-center gap-6"
-            style={{ transitionDelay: "500ms" }}
+        {/* ── GROW YOUR PRESENCE ONLINE ─────────────────────────── */}
+        <h2
+          className={cn(
+            "mt-5 font-display font-black uppercase leading-[1.05] tracking-tight transition-all duration-1000 [transition-timing-function:var(--ease-out-expo)]",
+            ready ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0",
+          )}
+          style={{
+            fontSize: "clamp(1.6rem, 4vw, 3rem)",
+            transitionDelay: "260ms",
+          }}
+        >
+          <span
+            className="bg-gradient-to-r from-violet-400 via-pink-400 to-orange-400 bg-clip-text text-transparent"
+            style={{ animation: "gradientShift 4s ease-in-out infinite alternate" }}
           >
-            {/* Orbit Ring with logo */}
-            <OrbitRing ready={ready} />
+            Grow Your Presence Online.
+          </span>
+        </h2>
 
-            {/* Floating service pills around the orbit */}
-            <div className="relative mt-2 w-72 xl:w-80">
-              <div className="relative h-40">
-                {[
-                  { label: "Social Media", icon: "📱", delay: 900, className: "-top-8 left-0" },
-                  { label: "Digital PR", icon: "📰", delay: 1050, className: "-top-4 right-0" },
-                  { label: "Advertising", icon: "🎯", delay: 1200, className: "top-8 left-4" },
-                  { label: "Media Coverage", icon: "📡", delay: 1350, className: "bottom-0 right-2" },
-                ].map((p) => (
-                  <ServicePill key={p.label} {...p} />
-                ))}
-              </div>
+        {/* ── Animated wave divider ─────────────────────────────── */}
+        <div
+          className={cn(
+            "my-3 max-w-md opacity-70 transition-all duration-1000",
+            ready ? "opacity-70" : "opacity-0",
+          )}
+          style={{ transitionDelay: "380ms" }}
+        >
+          <AnimatedWave />
+        </div>
 
-              {/* Hero illustration image */}
-              <div
+        {/* ── Sub-tagline ──────────────────────────────────────── */}
+        <p
+          className={cn(
+            "max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base transition-all duration-1000 [transition-timing-function:var(--ease-out-expo)]",
+            ready ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
+          )}
+          style={{ transitionDelay: "420ms" }}
+        >
+          We combine{" "}
+          <span className="font-bold text-foreground">social media</span>,{" "}
+          <span className="font-bold text-foreground">creative content</span>,{" "}
+          <span className="font-bold text-foreground">digital advertising</span>,{" "}
+          <span className="font-bold text-foreground">PR</span> and{" "}
+          <span className="font-bold text-foreground">nationwide media coverage</span> to help
+          you reach the right audience.
+        </p>
+
+        {/* ── HEADLINE WORDS ───────────────────────────────────── */}
+        <h1 className="mt-8 display-xl text-[clamp(2.75rem,11.5vw,10.5rem)]">
+          {WORDS.map((word, i) => (
+            <span key={word} className="block overflow-hidden pb-[0.24em] -mb-[0.18em]">
+              <span
+                style={{
+                  transitionDelay: `${520 + i * 190}ms`,
+                  transform: ready
+                    ? "translate3d(calc(var(--mx) * " + (i + 1) * 3 + "px), 0, 0)"
+                    : undefined,
+                }}
                 className={cn(
-                  "mt-4 overflow-hidden rounded-2xl border border-white/10 shadow-2xl transition-all duration-1500 [transition-timing-function:var(--ease-out-expo)]",
-                  ready ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
+                  "block transition-[transform,opacity,filter,clip-path] duration-[1300ms] [transition-timing-function:var(--ease-out-expo)]",
+                  ready
+                    ? "translate-y-0 opacity-100 blur-0 [clip-path:none]"
+                    : "translate-y-[105%] opacity-0 blur-[10px] [clip-path:inset(0_0_100%_0)]",
                 )}
-                style={{ transitionDelay: "800ms" }}
               >
-                <img
-                  src="/assets/hero-graphic.png"
-                  alt="Digital marketing illustration — social media, PR and advertising services"
-                  loading="eager"
-                  className="w-full object-cover"
-                />
-              </div>
-            </div>
-          </div>
+                {word}
+              </span>
+            </span>
+          ))}
+        </h1>
+
+        {/* ── CTA Buttons ──────────────────────────────────────── */}
+        <div
+          style={{ transitionDelay: "1100ms" }}
+          className={cn(
+            "mt-7 flex flex-wrap gap-3 transition-all duration-1000 [transition-timing-function:var(--ease-out-expo)]",
+            ready ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
+          )}
+        >
+          <Magnetic>
+            <GlassButton href="#contact" variant="solid">
+              Let's Talk
+              <ArrowRight
+                className="h-3.5 w-3.5 transition-transform duration-300 [transition-timing-function:var(--ease-out-expo)] group-hover/btn:translate-x-1"
+                aria-hidden
+              />
+            </GlassButton>
+          </Magnetic>
+          <Magnetic>
+            <GlassButton href="#services">
+              Explore Services
+              <ArrowRight
+                className="h-3.5 w-3.5 transition-transform duration-300 [transition-timing-function:var(--ease-out-expo)] group-hover/btn:translate-x-1"
+                aria-hidden
+              />
+            </GlassButton>
+          </Magnetic>
+          <Magnetic>
+            <GlassButton href={CONTACT.phoneHref}>Call Now</GlassButton>
+          </Magnetic>
         </div>
 
         {/* ── CLIENT LOGO MARQUEE ─────────────────────────────────── */}
         <div
-          style={{ transitionDelay: "1060ms" }}
+          style={{ transitionDelay: "1260ms" }}
           className={cn(
             "mt-14 sm:mt-18 w-full overflow-hidden transition-all duration-1000",
             ready ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
@@ -460,10 +324,6 @@ export function Hero() {
         @keyframes gradientShift {
           from { filter: hue-rotate(0deg); }
           to   { filter: hue-rotate(30deg); }
-        }
-        @keyframes fadeSlideIn {
-          from { opacity: 0; transform: translateY(8px); }
-          to   { opacity: 1; transform: translateY(0); }
         }
       `}</style>
     </section>
